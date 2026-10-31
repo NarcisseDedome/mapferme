@@ -33,8 +33,14 @@ export default function AdminLoginPage() {
         throw new Error(data.error || 'Erreur lors de la connexion.');
       }
 
-      router.push('/admin');
-      router.refresh();
+      if (data.token) {
+        try {
+          localStorage.setItem('map_admin_token', data.token);
+        } catch (_) {}
+      }
+
+      // Redirection complète pour garantir l'envoi du cookie de session
+      window.location.href = '/admin';
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Connexion impossible.');
     } finally {
@@ -76,7 +82,7 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@elevage-espoir.com"
+                placeholder="m.aik@hotmail.fr"
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-warm-300 text-stone-900 text-sm focus:outline-none focus:ring-2 focus:ring-forest-600"
               />
             </div>

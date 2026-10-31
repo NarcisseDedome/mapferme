@@ -12,9 +12,11 @@ import {
   XCircle,
   Filter,
   Download,
+  FileText,
 } from 'lucide-react';
 import { formatPrice, formatDateTime, buildWhatsAppLink } from '@/lib/utils';
 import { getPreparationLabel } from '@/lib/preparation';
+import { generateOrderReceiptPDF } from '@/lib/pdf-receipt';
 
 export interface AdminOrderItem {
   id: string;
@@ -280,7 +282,7 @@ export default function AdminOrdersClient({
                       )}
                     </div>
 
-                    <div className="pt-2 flex items-center gap-2">
+                    <div className="pt-2 flex flex-wrap items-center gap-2">
                       <a
                         href={clientWhatsAppUrl}
                         target="_blank"
@@ -290,6 +292,34 @@ export default function AdminOrdersClient({
                         <MessageCircle className="w-3.5 h-3.5" />
                         <span>Échanger sur WhatsApp</span>
                       </a>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          generateOrderReceiptPDF({
+                            orderNumber: order.orderNumber,
+                            createdAt: order.createdAt,
+                            customerName: order.customerName,
+                            customerPhone: order.customerPhone,
+                            customerLocation: order.customerLocation,
+                            deliveryAddress: order.deliveryAddress,
+                            preparationOption: order.preparationOption,
+                            preparationFee: order.preparationFee || 0,
+                            totalAmount: order.totalAmount,
+                            items: order.items.map((i) => ({
+                              animalName: i.animalName,
+                              quantity: i.quantity,
+                              unitPrice: i.unitPrice,
+                            })),
+                            farmName: 'Ferme MAP',
+                            currency,
+                          })
+                        }
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-800 font-bold text-[11px] transition shadow-2xs"
+                      >
+                        <FileText className="w-3.5 h-3.5 text-forest-700" />
+                        <span>Reçu PDF</span>
+                      </button>
                     </div>
                   </div>
 

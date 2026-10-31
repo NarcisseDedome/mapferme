@@ -179,9 +179,45 @@ Pouvez-vous me confirmer sa prise en charge et le créneau de livraison/retrait 
           </div>
         )}
 
+        {/* Consigne de présentation du reçu */}
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900 flex items-start gap-3">
+          <ShieldCheck className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+          <div>
+            <strong className="font-bold block mb-0.5">Consigne obligatoire pour le retrait :</strong>
+            <span>
+              Téléchargez votre reçu officiel en PDF ci-dessous. Vous devrez le présenter (sur votre smartphone ou imprimé) lors de la remise de vos animaux.
+            </span>
+          </div>
+        </div>
+
         {/* Bouton d'impression / téléchargement PDF */}
         <div className="flex justify-center print:hidden">
-          <PrintReceiptButton />
+          <PrintReceiptButton
+            orderData={
+              order
+                ? {
+                    orderNumber: order.orderNumber,
+                    createdAt: order.createdAt,
+                    customerName: order.customerName,
+                    customerPhone: order.customerPhone,
+                    customerLocation: order.customerLocation,
+                    deliveryAddress: order.deliveryAddress,
+                    preparationOption: order.preparationOption,
+                    preparationFee: order.preparationFee,
+                    totalAmount: order.totalAmount,
+                    items: order.items.map((i: any) => ({
+                      animalName: i.animalName,
+                      quantity: i.quantity,
+                      unitPrice: i.unitPrice,
+                    })),
+                    farmName: settings.farmName,
+                    phone: settings.phone,
+                    email: settings.email,
+                    currency: settings.currency,
+                  }
+                : undefined
+            }
+          />
         </div>
 
         {/* Étape WhatsApp recommandée */}
