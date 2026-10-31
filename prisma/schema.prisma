@@ -1,0 +1,151 @@
+// Prisma schema for Elevage Pro
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("ADMIN")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AnimalCategory {
+  id           String   @id @default(cuid())
+  name         String   @unique
+  slug         String   @unique
+  description  String?
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  animals      Animal[]
+}
+
+model Animal {
+  id          String         @id @default(cuid())
+  title       String
+  slug        String         @unique
+  categoryId  String
+  category    AnimalCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  description String
+  price       Float
+  stock       Int            @default(1)
+  status      String         @default("DISPONIBLE") // DISPONIBLE, RESERVE, VENDU, EPUISE
+  isPublished Boolean        @default(true)
+  age         String?
+  race        String?
+  sex         String?
+  weight      String?
+  location    String?
+  isFeatured  Boolean        @default(false)
+  viewsCount  Int            @default(0)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  images      AnimalImage[]
+  orderItems  OrderItem[]
+}
+
+model AnimalImage {
+  id        String   @id @default(cuid())
+  animalId  String
+  animal    Animal   @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  url       String
+  isPrimary Boolean  @default(false)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id               String      @id @default(cuid())
+  orderNumber      String      @unique
+  customerName     String
+  customerPhone    String
+  customerLocation String
+  deliveryAddress  String?
+  notes            String?
+  totalAmount      Float
+  status           String      @default("NOUVELLE") // NOUVELLE, CONFIRMEE, EN_PREPARATION, LIVREE, ANNULEE
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  items            OrderItem[]
+}
+
+model OrderItem {
+  id         String   @id @default(cuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  animalId   String?
+  animal     Animal?  @relation(fields: [animalId], references: [id], onDelete: SetNull)
+  animalName String
+  unitPrice  Float
+  quantity   Int
+  subtotal   Float
+  createdAt  DateTime @default(now())
+}
+
+model PortfolioProject {
+  id          String    @id @default(cuid())
+  title       String
+  category    String?
+  description String
+  imageUrl    String
+  eventDate   DateTime?
+  isPublished Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  category    String?
+  excerpt     String?
+  content     String
+  coverImage  String?
+  isPublished Boolean  @default(true)
+  viewsCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SiteSettings {
+  id              String   @id @default("default")
+  farmName        String   @default("Ferme Pastorale de l'Espoir")
+  tagline         String   @default("Élevage sain, naturel et sélectionné de lapins, volailles et cabris")
+  aboutText       String   @default("Passionné par l'agropastoralisme et le bien-être animal, notre élevage met à votre disposition des sujets vigoureux, nourris sainement et suivis rigoureusement sur le plan sanitaire.")
+  experienceYears Int      @default(6)
+  phone           String   @default("+229 97 00 12 34")
+  whatsappNumber  String   @default("22997001234")
+  email           String   @default("contact@elevage-espoir.com")
+  address         String   @default("Route Principale, Zone Rurale Agro-Écologique")
+  hours           String   @default("Lundi au Samedi : 07h30 - 18h00 | Dimanche sur commande")
+  currency        String   @default("FCFA")
+  heroTitle       String   @default("Animaux d'élevage de qualité supérieure, prêts pour votre cheptel ou votre table")
+  heroSubtitle    String   @default("Vente directe de lapins de race, poulets fermiers vigoureux et cabris sahéliens élevés avec soin et respect de la nature.")
+  heroImage       String?
+  facebookUrl     String?  @default("https://facebook.com")
+  youtubeUrl      String?
+  instagramUrl    String?
+  updatedAt       DateTime @updatedAt
+}
+
+model ContactMessage {
+  id           String   @id @default(cuid())
+  name         String
+  phoneOrEmail String
+  subject      String
+  message      String
+  isRead       Boolean  @default(false)
+  createdAt    DateTime @default(now())
+}

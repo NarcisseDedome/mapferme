@@ -1,0 +1,36 @@
+import { prisma } from '@/lib/prisma';
+import { getSiteSettings } from '@/lib/settings';
+import CommanderClient from './CommanderClient';
+
+export const revalidate = 0;
+
+interface PageProps {
+  searchParams: {
+    animalId?: string;
+  };
+}
+
+export default async function CommanderPage({ searchParams }: PageProps) {
+  const settings = await getSiteSettings();
+
+  const animals = await prisma.animal.findMany({
+    where: {
+      isPublished: true,
+      status: 'DISPONIBLE',
+      stock: { gt: 0 },
+    },
+    include: {
+      category: { select: { id: true, name: true, slug: true } },
+      images: { orderBy: { order: 'asc' } },
+    },
+    orderBy: { createdAt: 'desc' },
+  });
+
+  return (
+    <CommanderClient
+      animals={animals as any}
+      initialAnimalId={searchParams.animalId}
+      currency={settings.currency}
+    />
+  );
+}

@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F6F2E9; /* Fond crème exact */
+  --foreground: #292D29; /* Texte anthracite exact */
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F2E9;
+}
+::-webkit-scrollbar-thumb {
+  background: #557A46;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #234B35;
+}
+
+/* Badges de disponibilité harmonisés */
+.badge-available {
+  @apply bg-[#E9F3EB] text-[#234B35] border border-[#bedfc9] text-xs font-semibold px-2.5 py-0.5 rounded-full;
+}
+
+.badge-reserved {
+  @apply bg-[#FEF6E9] text-[#8A6246] border border-[#dcc1b0] text-xs font-semibold px-2.5 py-0.5 rounded-full;
+}
+
+.badge-sold {
+  @apply bg-[#FDEEE9] text-[#A63C2E] border border-[#f3c8bf] text-xs font-semibold px-2.5 py-0.5 rounded-full;
+}
+
+.badge-out-of-stock {
+  @apply bg-[#EFECE6] text-[#696C68] border border-[#D5D2CA] text-xs font-semibold px-2.5 py-0.5 rounded-full;
+}

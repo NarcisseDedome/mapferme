@@ -1,0 +1,28 @@
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#2D6043" />
+      <stop offset="100%" stopColor="#1B3C2A" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#8A6246" />
+      <stop offset="100%" stopColor="#C9A37E" />
+    </linearGradient>
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#7EAA6A" />
+      <stop offset="100%" stopColor="#557A46" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="108" height="108" rx="28" fill="url(#mapGradient)" stroke="url(#accentGradient)" stroke-width="3.5" />
+  <circle cx="60" cy="60" r="44" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5" stroke-dasharray="4 3" />
+  <path d="M60 22 C60 22, 68 28, 70 36 C64 36, 61 31, 60 22 Z" fill="url(#leafGradient)" />
+  <path d="M60 22 C60 22, 52 28, 50 36 C56 36, 59 31, 60 22 Z" fill="url(#leafGradient)" />
+  <circle cx="60" cy="22" r="2.5" fill="#E8D5B5" />
+  <g fill="#FCFBF7">
+    <path d="M26 78 V44 H34 L43 63 L52 44 H60 V78 H52.5 V54 L44.5 70.5 H41.5 L33.5 54 V78 H26 Z" />
+    <path d="M63 78 L74 44 H82 L93 78 H84.5 L82.5 71 H73.5 L71.5 78 H63 Z M75.5 64.5 H80.5 L78 54.5 L75.5 64.5 Z" />
+    <path d="M97 44 H108 C113.5 44 117 47.5 117 52.5 C117 57.5 113.5 61 108 61 H104.5 V78 H97 V44 Z M104.5 54.5 H107.5 C109.5 54.5 110.5 53.5 110.5 52.5 C110.5 51.5 109.5 50.5 107.5 50.5 H104.5 V54.5 Z" transform="translate(-6, 0) scale(0.92, 1)" />
+  </g>
+  <path d="M36 88 Q60 94 84 88" stroke="url(#accentGradient)" stroke-width="3" stroke-linecap="round" />
+  <circle cx="60" cy="91" r="2.5" fill="#C9A37E" />
+</svg>
