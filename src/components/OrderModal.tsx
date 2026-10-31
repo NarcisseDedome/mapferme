@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { X, ShoppingBag, AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 import { formatPrice } from '@/lib/utils';
+import { getPreparationOptions, getPreparationFee } from '@/lib/preparation';
 import { AnimalCardData } from './AnimalCard';
 
 interface OrderModalProps {
@@ -24,6 +25,7 @@ export default function OrderModal({
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerLocation, setCustomerLocation] = useState('');
+  const [preparationOption, setPreparationOption] = useState('VIVANT');
   const [deliveryType, setDeliveryType] = useState<'FERME' | 'RELAIS' | 'DOMICILE'>('FERME');
   const [deliveryAddress, setDeliveryAddress] = useState("Retrait direct à l'élevage Ferme MAP");
   const [notes, setNotes] = useState('');
@@ -33,7 +35,11 @@ export default function OrderModal({
   if (!isOpen || !animal) return null;
 
   const maxStock = Math.max(1, animal.stock);
-  const subtotal = animal.price * quantity;
+  const animalSubtotal = animal.price * quantity;
+  const prepOptions = getPreparationOptions(animal.category?.slug);
+  const singlePrepFee = getPreparationFee(preparationOption, animal.category?.slug);
+  const totalPrepFee = singlePrepFee * quantity;
+  const totalAmount = animalSubtotal + totalPrepFee;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,6 +66,7 @@ export default function OrderModal({
           customerName: customerName.trim(),
           customerPhone: customerPhone.trim(),
           customerLocation: customerLocation.trim(),
+          preparationOption,
           deliveryAddress: deliveryAddress.trim() || undefined,
           notes: notes.trim() || undefined,
         }),
@@ -163,11 +170,90 @@ export default function OrderModal({
                 +
               </button>
               <div className="ml-auto text-right">
-                <span className="text-xs text-stone-500 block">Sous-total</span>
+                <span className="text-xs text-stone-500 block">Sous-total animaux</span>
                 <span className="text-base font-extrabold text-forest-900">
-                  {formatPrice(subtotal, currency)}
+                  {formatPrice(animalSubtotal, currency)}
                 </span>
               </div>
+            </div>
+          </div>
+
+          {/* Preparation Option Selector */}
+          <div className="space-y-2 pt-2 border-t border-warm-200">
+            <div className="flex items-center justify-between">
+              <label className="block font-semibold text-stone-800 text-xs uppercase tracking-wider">
+                Préparation & Arrangement de l'animal
+              </label>
+              <span className="text-[11px] text-forest-700 font-medium">Tarif séparé & transparent</span>
+            </div>
+            <div className="space-y-2">
+              {prepOptions.map((opt) => {
+                const isSelected = preparationOption === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => setPreparationOption(opt.id)}
+                    className={`w-full p-3 rounded-2xl border text-left transition flex items-start justify-between gap-3 ${
+                      isSelected
+                        ? 'border-[#234B35] bg-[#E9F3EB] shadow-2xs ring-1 ring-[#234B35]'
+                        : 'border-warm-200 bg-white hover:bg-warm-50'
+                    }`}
+                  >
+                    <div className="space-y-0.5">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                            isSelected ? 'border-[#234B35] bg-[#234B35]' : 'border-stone-400'
+                          }`}
+                        >
+                          {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
+                        </span>
+                        <span className={`font-bold text-xs ${isSelected ? 'text-[#234B35]' : 'text-stone-900'}`}>
+                          {opt.label}
+                        </span>
+                        {opt.badge && (
+                          <span className="px-1.5 py-0.5 rounded-md text-[9px] font-extrabold uppercase bg-amber-100 text-amber-800 border border-amber-300">
+                            {opt.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[11px] text-stone-500 pl-6 leading-relaxed">
+                        {opt.description}
+                      </p>
+                    </div>
+
+                    <div className="text-right shrink-0">
+                      <span className={`font-extrabold text-xs block ${isSelected ? 'text-[#234B35]' : 'text-stone-700'}`}>
+                        {opt.fee === 0 ? 'Gratuit' : `+${formatPrice(opt.fee, currency)}`}
+                      </span>
+                      {opt.fee > 0 && quantity > 1 && (
+                        <span className="text-[10px] text-stone-400 block">
+                          Total: +{formatPrice(opt.fee * quantity, currency)}
+                        </span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Price Breakdown */}
+          <div className="p-3.5 rounded-2xl bg-warm-100/70 border border-warm-200 space-y-1.5 text-xs">
+            <div className="flex justify-between text-stone-600">
+              <span>Prix des animaux ({quantity} × {formatPrice(animal.price, currency)}) :</span>
+              <span className="font-semibold">{formatPrice(animalSubtotal, currency)}</span>
+            </div>
+            <div className="flex justify-between text-stone-600">
+              <span>Option préparation :</span>
+              <span className={`font-semibold ${totalPrepFee > 0 ? 'text-[#234B35]' : ''}`}>
+                {totalPrepFee === 0 ? 'Inclus (0 FCFA)' : `+${formatPrice(totalPrepFee, currency)} (${formatPrice(singlePrepFee, currency)} × ${quantity})`}
+              </span>
+            </div>
+            <div className="flex justify-between items-center pt-2 border-t border-warm-300 font-extrabold text-sm text-[#234B35]">
+              <span>Total à régler :</span>
+              <span className="text-base text-forest-900 font-black">{formatPrice(totalAmount, currency)}</span>
             </div>
           </div>
 

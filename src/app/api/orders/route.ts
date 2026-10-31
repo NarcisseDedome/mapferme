@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { getAdminSessionFromRequest } from '@/lib/auth';
 import { generateOrderNumber } from '@/lib/utils';
+import { getPreparationFee, getPreparationLabel } from '@/lib/preparation';
 
 // POST /api/orders (Public order creation)
 export async function POST(req: NextRequest) {
@@ -15,6 +16,7 @@ export async function POST(req: NextRequest) {
       customerLocation,
       deliveryAddress,
       notes,
+      preparationOption,
     } = body;
 
     if (!animalId || !customerName || !customerPhone || !customerLocation) {
@@ -35,6 +37,7 @@ export async function POST(req: NextRequest) {
     // Check animal availability
     const animal = await prisma.animal.findUnique({
       where: { id: animalId },
+      include: { category: true },
     });
 
     if (!animal) {
@@ -61,8 +64,11 @@ export async function POST(req: NextRequest) {
     }
 
     const unitPrice = animal.price;
+    const prepOption = preparationOption || 'VIVANT';
+    const singlePrepFee = getPreparationFee(prepOption, animal.category?.slug);
+    const totalPrepFee = singlePrepFee * orderQty;
     const subtotal = unitPrice * orderQty;
-    const totalAmount = subtotal;
+    const totalAmount = subtotal + totalPrepFee;
     const orderNumber = generateOrderNumber();
 
     // Execute atomic transaction for order creation and stock adjustment
@@ -75,6 +81,8 @@ export async function POST(req: NextRequest) {
           customerPhone: customerPhone.trim(),
           customerLocation: customerLocation.trim(),
           deliveryAddress: deliveryAddress?.trim() || null,
+          preparationOption: prepOption,
+          preparationFee: totalPrepFee,
           notes: notes?.trim() || null,
           totalAmount,
           status: 'NOUVELLE',
@@ -84,8 +92,10 @@ export async function POST(req: NextRequest) {
                 animalId: animal.id,
                 animalName: animal.title,
                 unitPrice,
+                preparationOption: prepOption,
+                preparationFee: totalPrepFee,
                 quantity: orderQty,
-                subtotal,
+                subtotal: subtotal + totalPrepFee,
               },
             ],
           },

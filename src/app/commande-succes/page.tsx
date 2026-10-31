@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { getSiteSettings } from '@/lib/settings';
 import { CheckCircle2, MessageCircle, ShoppingBag, Phone, MapPin, Calendar, ShieldCheck } from 'lucide-react';
 import { formatPrice, formatDate, buildWhatsAppLink } from '@/lib/utils';
+import { getPreparationLabel } from '@/lib/preparation';
 import PrintReceiptButton from '@/components/PrintReceiptButton';
 import { LogoIcon } from '@/components/Logo';
 
@@ -28,13 +29,19 @@ export default async function OrderSuccessPage({ searchParams }: PageProps) {
   const orderItem = order?.items?.[0];
   const formattedTotal = order ? formatPrice(order.totalAmount, settings.currency) : '';
 
+  const prepLabel = getPreparationLabel(order?.preparationOption);
+  const prepFeeText = order?.preparationFee && order.preparationFee > 0
+    ? ` (+${formatPrice(order.preparationFee, settings.currency)})`
+    : ' (0 FCFA)';
+
   const whatsappMessage = order
     ? `Bonjour ${settings.farmName}, je viens de passer la commande n° *${order.orderNumber}* sur votre site :
 - Client : ${order.customerName}
 - Contact : ${order.customerPhone}
 - Localité : ${order.customerLocation}
 - Sujet : ${orderItem?.quantity}x ${orderItem?.animalName}
-- Total : ${formattedTotal}
+- Préparation : ${prepLabel}${prepFeeText}
+- Total à régler : ${formattedTotal}
 Pouvez-vous me confirmer sa prise en charge et le créneau de livraison/retrait ?`
     : `Bonjour ${settings.farmName}, je viens de valider une commande sur votre site web.`;
 
@@ -122,18 +129,30 @@ Pouvez-vous me confirmer sa prise en charge et le créneau de livraison/retrait 
 
               {/* Ligne article */}
               {orderItem && (
-                <div className="pt-3 border-t border-[#ECE6D9] space-y-1">
+                <div className="pt-3 border-t border-[#ECE6D9] space-y-1.5">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-[#234B35]">
                       {orderItem.quantity} × {orderItem.animalName}
                     </span>
                     <span className="font-bold text-[#234B35]">
-                      {formatPrice(orderItem.subtotal, settings.currency)}
+                      {formatPrice(orderItem.unitPrice * orderItem.quantity, settings.currency)}
                     </span>
                   </div>
                   <p className="text-[11px] text-[#292D29]/60">
                     Prix unitaire : {formatPrice(orderItem.unitPrice, settings.currency)}
                   </p>
+
+                  {/* Option de préparation */}
+                  <div className="flex justify-between items-center text-xs pt-1.5 border-t border-[#ECE6D9]/70">
+                    <span className="text-[#292D29]/75 font-medium">
+                      Préparation : <strong className="text-[#234B35]">{prepLabel}</strong>
+                    </span>
+                    <span className="font-bold text-[#234B35]">
+                      {order.preparationFee > 0
+                        ? `+${formatPrice(order.preparationFee, settings.currency)}`
+                        : 'Inclus (0 FCFA)'}
+                    </span>
+                  </div>
                 </div>
               )}
 

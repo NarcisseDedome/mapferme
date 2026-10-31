@@ -66,31 +66,35 @@ model AnimalImage {
 }
 
 model Order {
-  id               String      @id @default(cuid())
-  orderNumber      String      @unique
-  customerName     String
-  customerPhone    String
-  customerLocation String
-  deliveryAddress  String?
-  notes            String?
-  totalAmount      Float
-  status           String      @default("NOUVELLE") // NOUVELLE, CONFIRMEE, EN_PREPARATION, LIVREE, ANNULEE
-  createdAt        DateTime    @default(now())
-  updatedAt        DateTime    @updatedAt
-  items            OrderItem[]
+  id                String      @id @default(cuid())
+  orderNumber       String      @unique
+  customerName      String
+  customerPhone     String
+  customerLocation  String
+  deliveryAddress   String?
+  notes             String?
+  preparationOption String?     @default("VIVANT") // VIVANT, DEPLUME_NETTOYE, DECOUPE_ASSAISONNE, GRILLE
+  preparationFee    Float       @default(0)
+  totalAmount       Float
+  status            String      @default("NOUVELLE") // NOUVELLE, CONFIRMEE, EN_PREPARATION, LIVREE, ANNULEE
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  items             OrderItem[]
 }
 
 model OrderItem {
-  id         String   @id @default(cuid())
-  orderId    String
-  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  animalId   String?
-  animal     Animal?  @relation(fields: [animalId], references: [id], onDelete: SetNull)
-  animalName String
-  unitPrice  Float
-  quantity   Int
-  subtotal   Float
-  createdAt  DateTime @default(now())
+  id                String   @id @default(cuid())
+  orderId           String
+  order             Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  animalId          String?
+  animal            Animal?  @relation(fields: [animalId], references: [id], onDelete: SetNull)
+  animalName        String
+  unitPrice         Float
+  preparationOption String?  @default("VIVANT")
+  preparationFee    Float    @default(0)
+  quantity          Int
+  subtotal          Float
+  createdAt         DateTime @default(now())
 }
 
 model PortfolioProject {

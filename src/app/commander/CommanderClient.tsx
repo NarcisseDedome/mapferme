@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ShoppingBag, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { formatPrice } from '@/lib/utils';
+import { getPreparationOptions, getPreparationFee } from '@/lib/preparation';
 import { AnimalCardData } from '@/components/AnimalCard';
 
 interface CommanderClientProps {
@@ -23,6 +24,7 @@ export default function CommanderClient({
     initialAnimalId || animals[0]?.id || ''
   );
   const [quantity, setQuantity] = useState<number>(1);
+  const [preparationOption, setPreparationOption] = useState<string>('VIVANT');
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerLocation, setCustomerLocation] = useState('');
@@ -34,7 +36,11 @@ export default function CommanderClient({
 
   const selectedAnimal = animals.find((a) => a.id === selectedAnimalId);
   const maxStock = selectedAnimal ? Math.max(1, selectedAnimal.stock) : 1;
-  const subtotal = selectedAnimal ? selectedAnimal.price * quantity : 0;
+  const animalSubtotal = selectedAnimal ? selectedAnimal.price * quantity : 0;
+  const prepOptions = selectedAnimal ? getPreparationOptions(selectedAnimal.category?.slug) : [];
+  const singlePrepFee = selectedAnimal ? getPreparationFee(preparationOption, selectedAnimal.category?.slug) : 0;
+  const totalPrepFee = singlePrepFee * quantity;
+  const totalAmount = animalSubtotal + totalPrepFee;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,6 +72,7 @@ export default function CommanderClient({
           customerName: customerName.trim(),
           customerPhone: customerPhone.trim(),
           customerLocation: customerLocation.trim(),
+          preparationOption,
           deliveryAddress: deliveryAddress.trim() || undefined,
           notes: notes.trim() || undefined,
         }),
@@ -196,18 +203,89 @@ export default function CommanderClient({
                 +
               </button>
               <div className="ml-auto text-right">
-                <span className="text-xs text-stone-500 block">Montant total</span>
+                <span className="text-xs text-stone-500 block">Sous-total animaux</span>
                 <span className="text-xl font-extrabold text-forest-900">
-                  {formatPrice(subtotal, currency)}
+                  {formatPrice(animalSubtotal, currency)}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* 3. Coordonnées */}
+          {/* 3. Option de préparation & découpe */}
+          <div className="space-y-3 pt-4 border-t border-warm-200">
+            <div className="flex items-center justify-between">
+              <label className="block text-xs font-bold uppercase tracking-wider text-forest-900">
+                3. Préparation & Découpe de l'animal
+              </label>
+              <span className="text-xs text-forest-700 font-semibold">Tarif séparé & transparent</span>
+            </div>
+            <p className="text-xs text-stone-600">
+              Choisissez comment vous souhaitez recevoir vos animaux (remis vivants, nettoyés prêts-à-cuire, marinés ou cuits sur braise) :
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {prepOptions.map((opt) => {
+                const isSelected = preparationOption === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => setPreparationOption(opt.id)}
+                    className={`p-4 rounded-2xl border text-left transition flex flex-col justify-between gap-3 ${
+                      isSelected
+                        ? 'border-[#234B35] bg-[#E9F3EB] shadow-xs ring-2 ring-[#234B35]'
+                        : 'border-warm-200 bg-white hover:bg-warm-50'
+                    }`}
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                              isSelected ? 'border-[#234B35] bg-[#234B35]' : 'border-stone-400'
+                            }`}
+                          >
+                            {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
+                          </span>
+                          <span className={`font-bold text-xs ${isSelected ? 'text-[#234B35]' : 'text-stone-900'}`}>
+                            {opt.label}
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-[11px] text-stone-500 pl-6 leading-relaxed">
+                        {opt.description}
+                      </p>
+                    </div>
+
+                    <div className="pl-6 pt-2 border-t border-warm-200/60 flex items-center justify-between">
+                      {opt.badge ? (
+                        <span className="px-2 py-0.5 rounded-md text-[9px] font-black uppercase bg-amber-100 text-amber-800 border border-amber-300">
+                          {opt.badge}
+                        </span>
+                      ) : (
+                        <span className="text-[10px] text-stone-400">Option standard</span>
+                      )}
+                      <div className="text-right">
+                        <span className={`font-black text-xs ${isSelected ? 'text-[#234B35]' : 'text-stone-800'}`}>
+                          {opt.fee === 0 ? 'Gratuit (0 FCFA)' : `+${formatPrice(opt.fee, currency)} / sujet`}
+                        </span>
+                        {opt.fee > 0 && quantity > 1 && (
+                          <span className="text-[10px] text-stone-400 block">
+                            Total: +{formatPrice(opt.fee * quantity, currency)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 4. Coordonnées */}
           <div className="space-y-4 pt-4 border-t border-warm-200">
             <label className="block text-xs font-bold uppercase tracking-wider text-forest-900">
-              3. Vos coordonnées client
+              4. Vos coordonnées client
             </label>
 
             <div>
@@ -337,6 +415,27 @@ export default function CommanderClient({
                 placeholder="Ex : Préférence sur la couleur des lapereaux, créneau horaire..."
                 className="w-full px-4 py-2 rounded-xl border border-warm-300 text-stone-900 focus:outline-none focus:ring-2 focus:ring-forest-600 text-sm"
               />
+            </div>
+          </div>
+
+          {/* Récapitulatif tarifaire transparent */}
+          <div className="p-5 rounded-2xl bg-warm-100/80 border border-warm-200 space-y-2 text-xs">
+            <h4 className="font-bold text-stone-900 uppercase tracking-wider text-[11px] text-forest-800">
+              Détail du montant à régler
+            </h4>
+            <div className="flex justify-between text-stone-700">
+              <span>Prix des animaux ({quantity} × {selectedAnimal && formatPrice(selectedAnimal.price, currency)}) :</span>
+              <span className="font-semibold">{formatPrice(animalSubtotal, currency)}</span>
+            </div>
+            <div className="flex justify-between text-stone-700">
+              <span>Préparation & arrangement de l'animal :</span>
+              <span className={`font-semibold ${totalPrepFee > 0 ? 'text-[#234B35]' : ''}`}>
+                {totalPrepFee === 0 ? 'Inclus (0 FCFA)' : `+${formatPrice(totalPrepFee, currency)} (${formatPrice(singlePrepFee, currency)} × ${quantity})`}
+              </span>
+            </div>
+            <div className="flex justify-between items-center pt-2.5 border-t border-warm-300 font-extrabold text-stone-900">
+              <span className="text-sm text-[#234B35]">Montant total à régler :</span>
+              <span className="text-xl text-forest-900 font-black">{formatPrice(totalAmount, currency)}</span>
             </div>
           </div>
 

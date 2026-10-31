@@ -14,6 +14,7 @@ import {
   Download,
 } from 'lucide-react';
 import { formatPrice, formatDateTime, buildWhatsAppLink } from '@/lib/utils';
+import { getPreparationLabel } from '@/lib/preparation';
 
 export interface AdminOrderItem {
   id: string;
@@ -22,6 +23,8 @@ export interface AdminOrderItem {
   customerPhone: string;
   customerLocation: string;
   deliveryAddress?: string | null;
+  preparationOption?: string | null;
+  preparationFee?: number | null;
   notes?: string | null;
   totalAmount: number;
   status: string; // NOUVELLE, CONFIRMEE, EN_PREPARATION, LIVREE, ANNULEE
@@ -30,6 +33,8 @@ export interface AdminOrderItem {
     id: string;
     animalName: string;
     unitPrice: number;
+    preparationOption?: string | null;
+    preparationFee?: number | null;
     quantity: number;
     subtotal: number;
   }>;
@@ -100,13 +105,14 @@ export default function AdminOrdersClient({
       'Modalite / Adresse',
       'Articles',
       'Quantite',
+      'Preparation',
+      'Frais Preparation',
       `Montant Total (${currency})`,
       'Statut',
       'Notes'
     ];
 
     const rows = orders.map((o) => {
-      const item = o.items[0];
       const itemsText = o.items.map((it) => `${it.quantity}x ${it.animalName}`).join(' ; ');
       const totalQty = o.items.reduce((acc, it) => acc + it.quantity, 0);
 
@@ -119,6 +125,8 @@ export default function AdminOrdersClient({
         `"${(o.deliveryAddress || '').replace(/"/g, '""')}"`,
         `"${itemsText.replace(/"/g, '""')}"`,
         totalQty,
+        `"${getPreparationLabel(o.preparationOption).replace(/"/g, '""')}"`,
+        o.preparationFee || 0,
         o.totalAmount,
         `"${o.status}"`,
         `"${(o.notes || '').replace(/"/g, '""')}"`,
@@ -307,6 +315,24 @@ export default function AdminOrdersClient({
                           </span>
                         </div>
                       ))}
+                    </div>
+
+                    {/* Option de préparation demandée */}
+                    <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-xs space-y-0.5">
+                      <div className="flex justify-between items-center">
+                        <span className="font-bold text-amber-900 flex items-center gap-1.5">
+                          <span>🔪</span>
+                          <span>Préparation demandée :</span>
+                        </span>
+                        <span className="font-black text-amber-950">
+                          {order.preparationFee && order.preparationFee > 0
+                            ? `+${formatPrice(order.preparationFee, currency)}`
+                            : 'Inclus (0 FCFA)'}
+                        </span>
+                      </div>
+                      <p className="font-semibold text-amber-800 text-[11px] pl-5">
+                        {getPreparationLabel(order.preparationOption)}
+                      </p>
                     </div>
 
                     <div className="flex justify-between items-center pt-2 font-bold text-sm text-forest-950">
