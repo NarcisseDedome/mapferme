@@ -4,10 +4,15 @@ import RealisationClient from './RealisationClient';
 export const revalidate = 0;
 
 export default async function RealisationsPage() {
-  const projects = await prisma.portfolioProject.findMany({
-    where: { isPublished: true },
-    orderBy: { eventDate: 'desc' },
-  });
+  let projects: any[] = [];
+  try {
+    projects = await prisma.portfolioProject.findMany({
+      where: { isPublished: true },
+      orderBy: { eventDate: 'desc' },
+    });
+  } catch (err) {
+    console.error('RealisationsPage fetch error:', err);
+  }
 
   return (
     <div className="pb-20 space-y-10">

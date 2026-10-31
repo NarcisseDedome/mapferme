@@ -17,21 +17,28 @@ export default async function EditAnimalPage({ params }: PageProps) {
 
   const { id } = params;
 
-  const animal = await prisma.animal.findUnique({
-    where: { id },
-    include: {
-      images: { orderBy: { order: 'asc' } },
-    },
-  });
+  let animal = null;
+  let categories: any[] = [];
+
+  try {
+    animal = await prisma.animal.findUnique({
+      where: { id },
+      include: {
+        images: { orderBy: { order: 'asc' } },
+      },
+    });
+
+    categories = await prisma.animalCategory.findMany({
+      orderBy: { displayOrder: 'asc' },
+      select: { id: true, name: true },
+    });
+  } catch (err) {
+    console.error('EditAnimalPage fetch error:', err);
+  }
 
   if (!animal) {
     notFound();
   }
-
-  const categories = await prisma.animalCategory.findMany({
-    orderBy: { displayOrder: 'asc' },
-    select: { id: true, name: true },
-  });
 
   return (
     <AnimalForm

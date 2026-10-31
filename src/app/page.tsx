@@ -21,49 +21,58 @@ export const revalidate = 0; // Données fraîches en direct depuis Supabase
 export default async function HomePage() {
   const settings = await getSiteSettings();
 
-  // 1. Récupération des catégories avec le décompte réel des animaux disponibles
-  const categories = await prisma.animalCategory.findMany({
-    orderBy: { displayOrder: 'asc' },
-    include: {
-      _count: {
-        select: {
-          animals: {
-            where: { isPublished: true, status: 'DISPONIBLE' },
+  let categories: any[] = [];
+  let animals: any[] = [];
+  let projects: any[] = [];
+  let articles: any[] = [];
+
+  try {
+    // 1. Récupération des catégories avec le décompte réel des animaux disponibles
+    categories = await prisma.animalCategory.findMany({
+      orderBy: { displayOrder: 'asc' },
+      include: {
+        _count: {
+          select: {
+            animals: {
+              where: { isPublished: true, status: 'DISPONIBLE' },
+            },
           },
         },
       },
-    },
-  });
+    });
 
-  // 2. Récupération exacte de 4 annonces d'animaux récents disponibles
-  const animals = await prisma.animal.findMany({
-    where: {
-      isPublished: true,
-      status: { not: 'VENDU' },
-    },
-    include: {
-      category: true,
-      images: {
-        orderBy: { order: 'asc' },
+    // 2. Récupération exacte de 4 annonces d'animaux récents disponibles
+    animals = await prisma.animal.findMany({
+      where: {
+        isPublished: true,
+        status: { not: 'VENDU' },
       },
-    },
-    orderBy: [{ isFeatured: 'desc' }, { createdAt: 'desc' }],
-    take: 4,
-  });
+      include: {
+        category: true,
+        images: {
+          orderBy: { order: 'asc' },
+        },
+      },
+      orderBy: [{ isFeatured: 'desc' }, { createdAt: 'desc' }],
+      take: 4,
+    });
 
-  // 3. Récupération des réalisations de l'exploitation (portfolio)
-  const projects = await prisma.portfolioProject.findMany({
-    where: { isPublished: true },
-    orderBy: { eventDate: 'desc' },
-    take: 3,
-  });
+    // 3. Récupération des réalisations de l'exploitation (portfolio)
+    projects = await prisma.portfolioProject.findMany({
+      where: { isPublished: true },
+      orderBy: { eventDate: 'desc' },
+      take: 3,
+    });
 
-  // 4. Récupération des actualités et conseils d'élevage
-  const articles = await prisma.article.findMany({
-    where: { isPublished: true },
-    orderBy: { createdAt: 'desc' },
-    take: 3,
-  });
+    // 4. Récupération des actualités et conseils d'élevage
+    articles = await prisma.article.findMany({
+      where: { isPublished: true },
+      orderBy: { createdAt: 'desc' },
+      take: 3,
+    });
+  } catch (err) {
+    console.error('Database connection error in HomePage:', err);
+  }
 
   // 5. Liens WhatsApp dynamiques configurés
   const whatsappHeroUrl = buildWhatsAppLink(

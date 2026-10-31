@@ -6,10 +6,15 @@ import { Calendar, ArrowRight } from 'lucide-react';
 export const revalidate = 0;
 
 export default async function ActualitesPage() {
-  const articles = await prisma.article.findMany({
-    where: { isPublished: true },
-    orderBy: { createdAt: 'desc' },
-  });
+  let articles: any[] = [];
+  try {
+    articles = await prisma.article.findMany({
+      where: { isPublished: true },
+      orderBy: { createdAt: 'desc' },
+    });
+  } catch (err) {
+    console.error('ActualitesPage fetch error:', err);
+  }
 
   return (
     <div className="pb-20 space-y-10">

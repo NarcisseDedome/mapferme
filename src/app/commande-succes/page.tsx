@@ -19,12 +19,17 @@ export default async function OrderSuccessPage({ searchParams }: PageProps) {
   const { orderNumber } = searchParams;
   const settings = await getSiteSettings();
 
-  const order = orderNumber
-    ? await prisma.order.findUnique({
+  let order = null;
+  if (orderNumber) {
+    try {
+      order = await prisma.order.findUnique({
         where: { orderNumber },
         include: { items: true },
-      })
-    : null;
+      });
+    } catch (err) {
+      console.error('OrderSuccessPage fetch error:', err);
+    }
+  }
 
   const orderItem = order?.items?.[0];
   const formattedTotal = order ? formatPrice(order.totalAmount, settings.currency) : '';

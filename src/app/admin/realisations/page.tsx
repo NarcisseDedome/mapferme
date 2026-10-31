@@ -9,9 +9,14 @@ export default async function AdminPortfolioPage() {
   const session = await getAdminSessionFromCookies();
   if (!session) redirect('/admin/login');
 
-  const projects = await prisma.portfolioProject.findMany({
-    orderBy: { eventDate: 'desc' },
-  });
+  let projects: any[] = [];
+  try {
+    projects = await prisma.portfolioProject.findMany({
+      orderBy: { eventDate: 'desc' },
+    });
+  } catch (err) {
+    console.error('AdminPortfolioPage fetch error:', err);
+  }
 
   return <AdminPortfolioClient initialProjects={projects as any} />;
 }

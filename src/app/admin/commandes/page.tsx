@@ -12,12 +12,17 @@ export default async function AdminOrdersPage() {
 
   const settings = await getSiteSettings();
 
-  const orders = await prisma.order.findMany({
-    include: {
-      items: true,
-    },
-    orderBy: { createdAt: 'desc' },
-  });
+  let orders: any[] = [];
+  try {
+    orders = await prisma.order.findMany({
+      include: {
+        items: true,
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+  } catch (err) {
+    console.error('AdminOrdersPage fetch error:', err);
+  }
 
   return (
     <AdminOrdersClient

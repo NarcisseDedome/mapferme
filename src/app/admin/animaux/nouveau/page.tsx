@@ -9,10 +9,15 @@ export default async function NewAnimalPage() {
   const session = await getAdminSessionFromCookies();
   if (!session) redirect('/admin/login');
 
-  const categories = await prisma.animalCategory.findMany({
-    orderBy: { displayOrder: 'asc' },
-    select: { id: true, name: true },
-  });
+  let categories: any[] = [];
+  try {
+    categories = await prisma.animalCategory.findMany({
+      orderBy: { displayOrder: 'asc' },
+      select: { id: true, name: true },
+    });
+  } catch (err) {
+    console.error('NewAnimalPage fetch error:', err);
+  }
 
   return <AnimalForm categories={categories} />;
 }

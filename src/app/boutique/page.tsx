@@ -13,25 +13,32 @@ interface PageProps {
 export default async function BoutiquePage({ searchParams }: PageProps) {
   const settings = await getSiteSettings();
 
-  const categories = await prisma.animalCategory.findMany({
-    orderBy: { displayOrder: 'asc' },
-    select: { id: true, name: true, slug: true },
-  });
+  let categories: any[] = [];
+  let animals: any[] = [];
 
-  const animals = await prisma.animal.findMany({
-    where: {
-      isPublished: true,
-    },
-    include: {
-      category: {
-        select: { id: true, name: true, slug: true },
+  try {
+    categories = await prisma.animalCategory.findMany({
+      orderBy: { displayOrder: 'asc' },
+      select: { id: true, name: true, slug: true },
+    });
+
+    animals = await prisma.animal.findMany({
+      where: {
+        isPublished: true,
       },
-      images: {
-        orderBy: { order: 'asc' },
+      include: {
+        category: {
+          select: { id: true, name: true, slug: true },
+        },
+        images: {
+          orderBy: { order: 'asc' },
+        },
       },
-    },
-    orderBy: { createdAt: 'desc' },
-  });
+      orderBy: { createdAt: 'desc' },
+    });
+  } catch (err) {
+    console.error('Database connection error in BoutiquePage:', err);
+  }
 
   const defaultCategory = searchParams.category || 'ALL';
 

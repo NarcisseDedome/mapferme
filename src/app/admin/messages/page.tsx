@@ -9,9 +9,14 @@ export default async function AdminMessagesPage() {
   const session = await getAdminSessionFromCookies();
   if (!session) redirect('/admin/login');
 
-  const messages = await prisma.contactMessage.findMany({
-    orderBy: { createdAt: 'desc' },
-  });
+  let messages: any[] = [];
+  try {
+    messages = await prisma.contactMessage.findMany({
+      orderBy: { createdAt: 'desc' },
+    });
+  } catch (err) {
+    console.error('AdminMessagesPage fetch error:', err);
+  }
 
   return <AdminMessagesClient initialMessages={messages as any} />;
 }

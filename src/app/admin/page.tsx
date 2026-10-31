@@ -27,43 +27,54 @@ export default async function AdminDashboardPage() {
 
   const settings = await getSiteSettings();
 
-  // Metrics calculation
-  const totalAnimals = await prisma.animal.count();
-  const availableAnimals = await prisma.animal.count({
-    where: { status: 'DISPONIBLE', isPublished: true, stock: { gt: 0 } },
-  });
-  const totalOrders = await prisma.order.count();
-  const pendingOrders = await prisma.order.count({
-    where: { status: { in: ['NOUVELLE', 'CONFIRMEE', 'EN_PREPARATION'] } },
-  });
-  const completedOrders = await prisma.order.count({
-    where: { status: 'LIVREE' },
-  });
-  const unreadMessages = await prisma.contactMessage.count({
-    where: { isRead: false },
-  });
+  let totalAnimals = 0;
+  let availableAnimals = 0;
+  let totalOrders = 0;
+  let pendingOrders = 0;
+  let completedOrders = 0;
+  let unreadMessages = 0;
+  let totalViews = 0;
+  let recentOrders: any[] = [];
+  let recentAnimals: any[] = [];
 
-  const totalViewsResult = await prisma.animal.aggregate({
-    _sum: { viewsCount: true },
-  });
-  const totalViews = totalViewsResult._sum.viewsCount || 0;
+  try {
+    totalAnimals = await prisma.animal.count();
+    availableAnimals = await prisma.animal.count({
+      where: { status: 'DISPONIBLE', isPublished: true, stock: { gt: 0 } },
+    });
+    totalOrders = await prisma.order.count();
+    pendingOrders = await prisma.order.count({
+      where: { status: { in: ['NOUVELLE', 'CONFIRMEE', 'EN_PREPARATION'] } },
+    });
+    completedOrders = await prisma.order.count({
+      where: { status: 'LIVREE' },
+    });
+    unreadMessages = await prisma.contactMessage.count({
+      where: { isRead: false },
+    });
 
-  // Recent orders
-  const recentOrders = await prisma.order.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' },
-    include: { items: true },
-  });
+    const totalViewsResult = await prisma.animal.aggregate({
+      _sum: { viewsCount: true },
+    });
+    totalViews = totalViewsResult._sum.viewsCount || 0;
 
-  // Recent animals
-  const recentAnimals = await prisma.animal.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' },
-    include: {
-      category: true,
-      images: { orderBy: { order: 'asc' } },
-    },
-  });
+    recentOrders = await prisma.order.findMany({
+      take: 5,
+      orderBy: { createdAt: 'desc' },
+      include: { items: true },
+    });
+
+    recentAnimals = await prisma.animal.findMany({
+      take: 5,
+      orderBy: { createdAt: 'desc' },
+      include: {
+        category: true,
+        images: { orderBy: { order: 'asc' } },
+      },
+    });
+  } catch (err) {
+    console.error('AdminDashboard fetch error:', err);
+  }
 
   return (
     <div className="space-y-8">

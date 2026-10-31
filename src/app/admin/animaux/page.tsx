@@ -12,13 +12,18 @@ export default async function AdminAnimalsPage() {
 
   const settings = await getSiteSettings();
 
-  const animals = await prisma.animal.findMany({
-    include: {
-      category: true,
-      images: { orderBy: { order: 'asc' } },
-    },
-    orderBy: { createdAt: 'desc' },
-  });
+  let animals: any[] = [];
+  try {
+    animals = await prisma.animal.findMany({
+      include: {
+        category: true,
+        images: { orderBy: { order: 'asc' } },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+  } catch (err) {
+    console.error('AdminAnimalsPage fetch error:', err);
+  }
 
   return (
     <AdminAnimalsClient

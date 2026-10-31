@@ -14,54 +14,67 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const article = await prisma.article.findFirst({
-    where: {
-      OR: [{ slug: params.slug }, { id: params.slug }],
-    },
-  });
+  try {
+    const article = await prisma.article.findFirst({
+      where: {
+        OR: [{ slug: params.slug }, { id: params.slug }],
+      },
+    });
 
-  if (!article) return { title: 'Article introuvable' };
+    if (!article) return { title: 'Article introuvable' };
 
-  return {
-    title: article.title,
-    description: article.excerpt || article.content.slice(0, 160),
-    openGraph: {
+    return {
       title: article.title,
       description: article.excerpt || article.content.slice(0, 160),
-      images: article.coverImage ? [{ url: article.coverImage }] : [],
-    },
-  };
+      openGraph: {
+        title: article.title,
+        description: article.excerpt || article.content.slice(0, 160),
+        images: article.coverImage ? [{ url: article.coverImage }] : [],
+      },
+    };
+  } catch (err) {
+    return { title: 'Article' };
+  }
 }
 
 export default async function ArticleDetailPage({ params }: PageProps) {
   const { slug } = params;
 
-  const article = await prisma.article.findFirst({
-    where: {
-      OR: [{ slug }, { id: slug }],
-      isPublished: true,
-    },
-  });
+  let article = null;
+  let otherArticles: any[] = [];
+
+  try {
+    article = await prisma.article.findFirst({
+      where: {
+        OR: [{ slug }, { id: slug }],
+        isPublished: true,
+      },
+    });
+
+    if (article) {
+      // Incrémenter le nombre de vues de l'article
+      await prisma.article.update({
+        where: { id: article.id },
+        data: { viewsCount: { increment: 1 } },
+      }).catch((err) => console.error('Erreur incrémentation vues article:', err));
+
+      // Fetch 2 other articles
+      otherArticles = await prisma.article.findMany({
+        where: {
+          id: { not: article.id },
+          isPublished: true,
+        },
+        take: 2,
+        orderBy: { createdAt: 'desc' },
+      });
+    }
+  } catch (err) {
+    console.error('ArticleDetailPage fetch error:', err);
+  }
 
   if (!article) {
     notFound();
   }
-
-  // Incrémenter le nombre de vues de l'article
-  await prisma.article.update({
-    where: { id: article.id },
-    data: { viewsCount: { increment: 1 } },
-  }).catch((err) => console.error('Erreur incrémentation vues article:', err));
-
-  // Fetch 2 other articles
-  const otherArticles = await prisma.article.findMany({
-    where: {
-      id: { not: article.id },
-      isPublished: true,
-    },
-    take: 2,
-    orderBy: { createdAt: 'desc' },
-  });
 
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
