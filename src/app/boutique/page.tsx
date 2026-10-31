@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import { getSiteSettings } from '@/lib/settings';
+import { FALLBACK_CATEGORIES, FALLBACK_ANIMALS } from '@/lib/farm-data';
 import BoutiqueClient from './BoutiqueClient';
 
 export const revalidate = 0;
@@ -39,6 +40,9 @@ export default async function BoutiquePage({ searchParams }: PageProps) {
   } catch (err) {
     console.error('Database connection error in BoutiquePage:', err);
   }
+
+  if (!categories || categories.length === 0) categories = FALLBACK_CATEGORIES;
+  if (!animals || animals.length === 0) animals = FALLBACK_ANIMALS;
 
   const defaultCategory = searchParams.category || 'ALL';
 

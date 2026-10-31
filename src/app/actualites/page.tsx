@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { formatDate } from '@/lib/utils';
 import { Calendar, ArrowRight } from 'lucide-react';
+import { FALLBACK_ARTICLES } from '@/lib/farm-data';
 
 export const revalidate = 0;
 
@@ -14,6 +15,10 @@ export default async function ActualitesPage() {
     });
   } catch (err) {
     console.error('ActualitesPage fetch error:', err);
+  }
+
+  if (!articles || articles.length === 0) {
+    articles = FALLBACK_ARTICLES;
   }
 
   return (

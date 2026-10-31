@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { formatDate } from '@/lib/utils';
 import { Calendar, ArrowLeft, Share2 } from 'lucide-react';
+import { FALLBACK_ARTICLES } from '@/lib/farm-data';
 import type { Metadata } from 'next';
 
 export const revalidate = 0;
@@ -70,6 +71,14 @@ export default async function ArticleDetailPage({ params }: PageProps) {
     }
   } catch (err) {
     console.error('ArticleDetailPage fetch error:', err);
+  }
+
+  if (!article) {
+    const match = FALLBACK_ARTICLES.find((a: any) => a.slug === slug || a.id === slug);
+    if (match) {
+      article = match as any;
+      otherArticles = FALLBACK_ARTICLES.filter((a: any) => a.id !== match.id).slice(0, 2) as any;
+    }
   }
 
   if (!article) {

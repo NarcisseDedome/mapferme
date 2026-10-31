@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+import { FALLBACK_PROJECTS } from '@/lib/farm-data';
 import RealisationClient from './RealisationClient';
 
 export const revalidate = 0;
@@ -12,6 +13,10 @@ export default async function RealisationsPage() {
     });
   } catch (err) {
     console.error('RealisationsPage fetch error:', err);
+  }
+
+  if (!projects || projects.length === 0) {
+    projects = FALLBACK_PROJECTS;
   }
 
   return (

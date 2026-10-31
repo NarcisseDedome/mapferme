@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { getSiteSettings } from '@/lib/settings';
+import {
+  FALLBACK_CATEGORIES,
+  FALLBACK_ANIMALS,
+  FALLBACK_PROJECTS,
+  FALLBACK_ARTICLES,
+} from '@/lib/farm-data';
 import AnimalCard from '@/components/AnimalCard';
 import {
   ShoppingBag,
@@ -73,6 +79,12 @@ export default async function HomePage() {
   } catch (err) {
     console.error('Database connection error in HomePage:', err);
   }
+
+  // Si la base est inaccessible ou vide, utiliser les données réelles authentiques de la Ferme MAP
+  if (!categories || categories.length === 0) categories = FALLBACK_CATEGORIES;
+  if (!animals || animals.length === 0) animals = FALLBACK_ANIMALS.slice(0, 4);
+  if (!projects || projects.length === 0) projects = FALLBACK_PROJECTS.slice(0, 3);
+  if (!articles || articles.length === 0) articles = FALLBACK_ARTICLES.slice(0, 3);
 
   // 5. Liens WhatsApp dynamiques configurés
   const whatsappHeroUrl = buildWhatsAppLink(

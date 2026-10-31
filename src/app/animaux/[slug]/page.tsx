@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { getSiteSettings } from '@/lib/settings';
+import { FALLBACK_ANIMALS } from '@/lib/farm-data';
 import AnimalDetailClient from './AnimalDetailClient';
 import type { Metadata } from 'next';
 
@@ -86,6 +87,19 @@ export default async function AnimalDetailPage({ params }: PageProps) {
     }
   } catch (err) {
     console.error('AnimalDetailPage fetch error:', err);
+  }
+
+  // Secours avec les données authentiques
+  if (!animal) {
+    const fallbackMatch = FALLBACK_ANIMALS.find(
+      (a: any) => a.slug === slug || a.id === slug
+    );
+    if (fallbackMatch) {
+      animal = fallbackMatch as any;
+      relatedAnimals = FALLBACK_ANIMALS.filter(
+        (a: any) => a.categoryId === fallbackMatch.categoryId && a.id !== fallbackMatch.id
+      ).slice(0, 3) as any;
+    }
   }
 
   if (!animal) {

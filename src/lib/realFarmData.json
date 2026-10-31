@@ -1,0 +1,675 @@
+{
+  "settings": {
+    "id": "default",
+    "farmName": "Ferme MAP",
+    "tagline": "Élevage sain, naturel et sélectionné — Lapins, Volailles & Cabris",
+    "aboutText": "Éleveur professionnel indépendant depuis plus de 6 ans, nous sélectionnons des sujets vigoureux, nourris sainement avec des produits naturels de nos terroirs et suivis selon un protocole sanitaire strict. Nous pratiquons la vente directe sans intermédiaire afin de garantir aux acquéreurs des animaux au meilleur de leur forme.",
+    "experienceYears": 6,
+    "phone": "+229 01 66 01 77 83",
+    "whatsappNumber": "22901660177830",
+    "email": "m.aik@hotmail.fr",
+    "address": "",
+    "hours": "Lundi au Samedi : 07h30 - 18h30 | Dimanche sur commande",
+    "currency": "FCFA",
+    "heroTitle": "Commandez vos grillards si vous désirez gagner du temps dans vos préparations, rapide et bien fait !",
+    "heroSubtitle": "Vente directe de lapins de race, poulets fermiers vigoureux et cabris Djallonké élevés avec soin et respect de la nature. Ferme MAP — Élevage · Qualité · Confiance",
+    "heroImage": "/uploads/grillades-barbecue-ferme.webp",
+    "facebookUrl": "https://facebook.com",
+    "youtubeUrl": "",
+    "instagramUrl": "",
+    "updatedAt": "2026-10-31T07:24:18.640Z"
+  },
+  "categories": [
+    {
+      "id": "cmvuo2w4j0001f5clbcnft4b0",
+      "name": "Lapins",
+      "slug": "lapins",
+      "description": "Lapins de chair et reproducteurs vigoureux (Fauve de Bourgogne, Géant, Néo-Zélandais).",
+      "displayOrder": 1,
+      "createdAt": "2026-10-30T07:44:53.540Z",
+      "updatedAt": "2026-10-30T07:44:53.540Z",
+      "_count": {
+        "animals": 3
+      }
+    },
+    {
+      "id": "cmvuwaykh00003dyak2pdnc3p",
+      "name": "Poulets Fermiers",
+      "slug": "poulets",
+      "description": "Poulets élevés en plein air à la ferme MAP",
+      "displayOrder": 1,
+      "createdAt": "2026-10-30T11:35:06.881Z",
+      "updatedAt": "2026-10-30T11:35:06.881Z",
+      "_count": {
+        "animals": 4
+      }
+    },
+    {
+      "id": "cmvuo2xak0002f5clcyj3f3ly",
+      "name": "Poulets et Volailles",
+      "slug": "poulets-et-volailles",
+      "description": "Poulets bicyclettes fermiers, Goliath, canards et dindes élevés en plein air.",
+      "displayOrder": 2,
+      "createdAt": "2026-10-30T07:44:55.052Z",
+      "updatedAt": "2026-10-30T07:44:55.052Z",
+      "_count": {
+        "animals": 3
+      }
+    },
+    {
+      "id": "cmvuo2yeu0003f5clnxvyoz7z",
+      "name": "Cabris et Chèvres",
+      "slug": "cabris-et-chevres",
+      "description": "Cabris sahéliens vigoureux, boucs reproducteurs et chèvres laitières rustiques.",
+      "displayOrder": 3,
+      "createdAt": "2026-10-30T07:44:56.503Z",
+      "updatedAt": "2026-10-30T07:44:56.503Z",
+      "_count": {
+        "animals": 1
+      }
+    },
+    {
+      "id": "cmvuwb0fj00013dyaojnd5qzd",
+      "name": "Cabris & Chèvres",
+      "slug": "cabris",
+      "description": "Cabris Djallonké et métis robustes",
+      "displayOrder": 3,
+      "createdAt": "2026-10-30T11:35:09.295Z",
+      "updatedAt": "2026-10-30T11:35:09.295Z",
+      "_count": {
+        "animals": 0
+      }
+    },
+    {
+      "id": "cmvuwb23t00023dyamrk29zkq",
+      "name": "Poussins & Poulettes",
+      "slug": "poussins",
+      "description": "Jeunes volailles démarrées en poussinière",
+      "displayOrder": 4,
+      "createdAt": "2026-10-30T11:35:11.465Z",
+      "updatedAt": "2026-10-30T11:35:11.465Z",
+      "_count": {
+        "animals": 1
+      }
+    }
+  ],
+  "animals": [
+    {
+      "id": "cmvw2wgt80001k6zo3ze0chpu",
+      "title": "Grillards Fermiers Prêts-à-Cuire — Assaisonnés & Découpés",
+      "slug": "grillards-prets-a-cuire-fermiers",
+      "categoryId": "cmvuwaykh00003dyak2pdnc3p",
+      "description": "Commandez vos grillards si vous désirez gagner du temps dans vos préparations, rapide et bien fait ! Morceaux sélectionnés de nos volailles fermières et viandes de qualité, soigneusement découpés, nettoyés et préparés aux épices naturelles maison. Parfait pour vos barbecues, réceptions, dîners express ou réjouissances en famille sans tracas.",
+      "price": 6000,
+      "stock": 25,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "Frais du jour",
+      "race": "Sélection Ferme MAP",
+      "sex": "Mixte",
+      "weight": "1.5-2.0 kg",
+      "location": "Ferme MAP, Bénin",
+      "isFeatured": true,
+      "viewsCount": 1,
+      "createdAt": "2026-10-31T07:27:34.172Z",
+      "updatedAt": "2026-10-31T10:50:30.390Z",
+      "images": [
+        {
+          "id": "cmvw2wiag0003k6zoiv9h9bfx",
+          "animalId": "cmvw2wgt80001k6zo3ze0chpu",
+          "url": "/uploads/grillades-barbecue-ferme.webp",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-31T07:27:36.089Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuwaykh00003dyak2pdnc3p",
+        "name": "Poulets Fermiers",
+        "slug": "poulets",
+        "description": "Poulets élevés en plein air à la ferme MAP",
+        "displayOrder": 1,
+        "createdAt": "2026-10-30T11:35:06.881Z",
+        "updatedAt": "2026-10-30T11:35:06.881Z"
+      }
+    },
+    {
+      "id": "cmvuwbynh00143dyacbfane5b",
+      "title": "Sujets Sélectionnés Poulailler Artisanal 3 Niveaux",
+      "slug": "sujets-selectionnes-poulailler-artisanal-3-niveaux",
+      "categoryId": "cmvuwaykh00003dyak2pdnc3p",
+      "description": "Poules et coqs sélectionnés issus de notre poulailler artisanal à 3 niveaux, construit en bois naturel avec filet galvanisé à la Ferme MAP. Ces sujets ont prouvé leur excellente capacité d'adaptation en batterie et en plein air. Robe noire, tachetée ou brun-rouge. Idéal pour renforcer ou démarrer un élevage avicole. La Ferme MAP vous garantit des animaux sains, vigoureux et habitués à différentes conditions d'élevage.",
+      "price": 4000,
+      "stock": 15,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "4-6 mois",
+      "race": "Local sélectionné",
+      "sex": "Mixte",
+      "weight": "1.5-2.2 kg",
+      "location": "Ferme MAP, Bénin",
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:35:53.645Z",
+      "updatedAt": "2026-10-31T10:50:24.528Z",
+      "images": [
+        {
+          "id": "cmvuwbzvt00163dya90dypv65",
+          "animalId": "cmvuwbynh00143dyacbfane5b",
+          "url": "/uploads/poulailler-batterie-bois-3niveaux.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:35:55.242Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuwaykh00003dyak2pdnc3p",
+        "name": "Poulets Fermiers",
+        "slug": "poulets",
+        "description": "Poulets élevés en plein air à la ferme MAP",
+        "displayOrder": 1,
+        "createdAt": "2026-10-30T11:35:06.881Z",
+        "updatedAt": "2026-10-30T11:35:06.881Z"
+      }
+    },
+    {
+      "id": "cmvuwbvhk00103dyats16k94j",
+      "title": "Poussins et Poulettes Sevrés — Démarrés en Poussinière",
+      "slug": "poussins-et-poulettes-sevres-demarres-en-poussiniere",
+      "categoryId": "cmvuwb23t00023dyamrk29zkq",
+      "description": "Jeunes poussins et poulettes sevrés, démarrés en poussinière équipée d'une mangeoire linéaire et d'un abreuvoir automatique à la Ferme MAP. Ces jeunes volailles rustiques et variées sont en pleine santé, prêtes à intégrer votre basse-cour ou votre élevage. Races mixtes incluant Barré de Sussex, maillées et fauves. Vendus par lot minimum de 5 sujets. Idéal pour démarrer un élevage avicole à moindre coût.",
+      "price": 1500,
+      "stock": 40,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "2-4 semaines",
+      "race": "Races locales mixtes",
+      "sex": "Mixte",
+      "weight": "0.15-0.35 kg",
+      "location": "Ferme MAP, Bénin",
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:35:49.544Z",
+      "updatedAt": "2026-10-31T10:50:18.636Z",
+      "images": [
+        {
+          "id": "cmvuwbxax00123dya7stpol52",
+          "animalId": "cmvuwbvhk00103dyats16k94j",
+          "url": "/uploads/poussiniere-mangeoire-abreuvoir.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:35:51.897Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuwb23t00023dyamrk29zkq",
+        "name": "Poussins & Poulettes",
+        "slug": "poussins",
+        "description": "Jeunes volailles démarrées en poussinière",
+        "displayOrder": 4,
+        "createdAt": "2026-10-30T11:35:11.465Z",
+        "updatedAt": "2026-10-30T11:35:11.465Z"
+      }
+    },
+    {
+      "id": "cmvuwbrpv000w3dyasp5y8fgf",
+      "title": "Lot de Poulets et Coqs Fermiers Basse-Cour Plein Air",
+      "slug": "lot-de-poulets-et-coqs-fermiers-basse-cour-plein-air",
+      "categoryId": "cmvuwaykh00003dyak2pdnc3p",
+      "description": "Magnifique lot de poulets fermiers élevés en liberté totale dans la cour de la Ferme MAP. Ces volailles robustes et actives — poules pondeuses, coqs vigoureux et jeunes poulettes — sont élevées sans antibiotiques, nourries de grains naturels et d'insectes. Chair savoureuse et ferme, idéale pour la consommation ou la reproduction en élevage. Disponible à la vente à l'unité ou en lot selon vos besoins.",
+      "price": 3500,
+      "stock": 30,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "3-5 mois",
+      "race": "Local plein air",
+      "sex": "Mixte",
+      "weight": "1.2-2.0 kg",
+      "location": "Ferme MAP, Bénin",
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:35:44.660Z",
+      "updatedAt": "2026-10-31T10:50:12.548Z",
+      "images": [
+        {
+          "id": "cmvuwbu8o000y3dyadvs9zpbl",
+          "animalId": "cmvuwbrpv000w3dyasp5y8fgf",
+          "url": "/uploads/basse-cour-poulets-ferme.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:35:47.928Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuwaykh00003dyak2pdnc3p",
+        "name": "Poulets Fermiers",
+        "slug": "poulets",
+        "description": "Poulets élevés en plein air à la ferme MAP",
+        "displayOrder": 1,
+        "createdAt": "2026-10-30T11:35:06.881Z",
+        "updatedAt": "2026-10-30T11:35:06.881Z"
+      }
+    },
+    {
+      "id": "cmvuv6ryo000t38r6zc2alikl",
+      "title": "Lot de Jeunes Poulettes et Poussins Démarrés",
+      "slug": "jeunes-poulettes-poussins-demarres-mangeoire",
+      "categoryId": "cmvuo2xak0002f5clcyj3f3ly",
+      "description": "Jeunes volailles sevrées en pleine phase d'engraissement, regroupées autour de la mangeoire linéaire sous abri sécurisé. Habituées aux mangeoires suspendues et abreuvoirs propres. Démarrage prophylactique complet administré (vitamines, vaccins aviaires). Idéal pour enrichir un élevage familial ou commercial.",
+      "price": 2500,
+      "stock": 25,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "2 mois et demi",
+      "race": "Poulettes Locales Améliorées",
+      "sex": "Mixte",
+      "weight": "750 g",
+      "location": null,
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:52.080Z",
+      "updatedAt": "2026-10-31T10:49:48.172Z",
+      "images": [
+        {
+          "id": "cmvuv6sp2000v38r6ahzc0grx",
+          "animalId": "cmvuv6ryo000t38r6zc2alikl",
+          "url": "/uploads/jeunes-poulettes-mangeoire.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:03:53.030Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuo2xak0002f5clcyj3f3ly",
+        "name": "Poulets et Volailles",
+        "slug": "poulets-et-volailles",
+        "description": "Poulets bicyclettes fermiers, Goliath, canards et dindes élevés en plein air.",
+        "displayOrder": 2,
+        "createdAt": "2026-10-30T07:44:55.052Z",
+        "updatedAt": "2026-10-30T07:44:55.052Z"
+      }
+    },
+    {
+      "id": "cmvuv6qm7000p38r6kb6iugxo",
+      "title": "Coqs Reproducteurs Vigoureux de Basse-Cour",
+      "slug": "coqs-reproducteurs-vigoureux-ferme",
+      "categoryId": "cmvuo2xak0002f5clcyj3f3ly",
+      "description": "Splendides coqs adultes au plumage chatoyant (roux doré et noir reflets émeraude), très fiers et vigilants. Sujets dominants dotés d'une excellente constitution physique pour stimuler la ponte, féconder vos poules pondeuses et transmettre une rusticité remarquable à votre cheptel avicole.",
+      "price": 9000,
+      "stock": 8,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "7 mois",
+      "race": "Coqs Fermiers Écarlates & Noirs",
+      "sex": "Mâle reproducteur",
+      "weight": "2.6 kg",
+      "location": null,
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:50.335Z",
+      "updatedAt": "2026-10-31T10:49:36.224Z",
+      "images": [
+        {
+          "id": "cmvuv6ram000r38r64usbq1b0",
+          "animalId": "cmvuv6qm7000p38r6kb6iugxo",
+          "url": "/uploads/coqs-fermiers-basse-cour.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:03:51.214Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuo2xak0002f5clcyj3f3ly",
+        "name": "Poulets et Volailles",
+        "slug": "poulets-et-volailles",
+        "description": "Poulets bicyclettes fermiers, Goliath, canards et dindes élevés en plein air.",
+        "displayOrder": 2,
+        "createdAt": "2026-10-30T07:44:55.052Z",
+        "updatedAt": "2026-10-30T07:44:55.052Z"
+      }
+    },
+    {
+      "id": "cmvuv6p5a000l38r6kik7ck52",
+      "title": "Portée de Lapereaux Sevrés Rustiques Blancs",
+      "slug": "portee-lapereaux-sevres-blancs",
+      "categoryId": "cmvuo2w4j0001f5clbcnft4b0",
+      "description": "Lot homogène de jeunes lapereaux sevrés vifs et joueurs, élevés ensemble en batterie fermière avec abreuvoir en terre cuite et nid douillet. Déjà parfaitement autonomes sur l'alimentation solide (granulés fermiers, herbes sèches). Forte résistance naturelle et excellente vitesse de croissance.",
+      "price": 25000,
+      "stock": 6,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "7 semaines",
+      "race": "Néo-Zélandais croisé",
+      "sex": "Mâles & Femelles",
+      "weight": "850 g / unité",
+      "location": null,
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:48.430Z",
+      "updatedAt": "2026-10-31T10:49:30.312Z",
+      "images": [
+        {
+          "id": "cmvuv6pzx000n38r6enjm1han",
+          "animalId": "cmvuv6p5a000l38r6kik7ck52",
+          "url": "/uploads/portee-lapereaux-blancs.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:03:49.533Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuo2w4j0001f5clbcnft4b0",
+        "name": "Lapins",
+        "slug": "lapins",
+        "description": "Lapins de chair et reproducteurs vigoureux (Fauve de Bourgogne, Géant, Néo-Zélandais).",
+        "displayOrder": 1,
+        "createdAt": "2026-10-30T07:44:53.540Z",
+        "updatedAt": "2026-10-30T07:44:53.540Z"
+      }
+    },
+    {
+      "id": "cmvuv6nu9000h38r67m2u1eod",
+      "title": "Lapine Reproductrice Fauve de Bourgogne",
+      "slug": "lapine-reproductrice-fauve-de-bourgogne",
+      "categoryId": "cmvuo2w4j0001f5clbcnft4b0",
+      "description": "Lapine adulte de race Fauve de Bourgogne (robe fauve dorée), excellente mère avec forte prolificité. Élevée en clapier à la Ferme MAP, nourrie de fourrages frais et granulés. Cette lapine rustique produit des portées de 7 à 10 lapereaux par mise bas. Idéale pour démarrer ou développer un élevage cunicole rentable.",
+      "price": 14000,
+      "stock": 4,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "8-14 mois",
+      "race": "Fauve de Bourgogne",
+      "sex": "Femelle",
+      "weight": "3-4 kg",
+      "location": "Ferme MAP, Bénin",
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:46.737Z",
+      "updatedAt": "2026-10-31T10:50:00.305Z",
+      "images": [
+        {
+          "id": "cmvuwbgs3000i3dyau79ncqzr",
+          "animalId": "cmvuv6nu9000h38r67m2u1eod",
+          "url": "/uploads/lapine-fauve-bourgogne.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:35:30.483Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuo2w4j0001f5clbcnft4b0",
+        "name": "Lapins",
+        "slug": "lapins",
+        "description": "Lapins de chair et reproducteurs vigoureux (Fauve de Bourgogne, Géant, Néo-Zélandais).",
+        "displayOrder": 1,
+        "createdAt": "2026-10-30T07:44:53.540Z",
+        "updatedAt": "2026-10-30T07:44:53.540Z"
+      }
+    },
+    {
+      "id": "cmvuv6mis000d38r616idb1tj",
+      "title": "Poulet Fermier Frais Prêt-à-Cuire",
+      "slug": "poulet-fermier-frais-pret-a-cuire",
+      "categoryId": "cmvuwaykh00003dyak2pdnc3p",
+      "description": "Poulet fermier entier prêt à cuire, issu de l'élevage plein air de la Ferme MAP. Volaille nettoyée et préparée avec soin, à la chair ferme et savoureuse, sans injection ni additif. Parfait pour vos repas familiaux, cérémonies ou restaurants. Disponible sur commande avec livraison possible en zone locale.",
+      "price": 5000,
+      "stock": 20,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "4-5 mois",
+      "race": "Bicyclette local",
+      "sex": "Femelle",
+      "weight": "1.5-2 kg",
+      "location": "Ferme MAP, Bénin",
+      "isFeatured": false,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:45.028Z",
+      "updatedAt": "2026-10-31T10:49:54.273Z",
+      "images": [
+        {
+          "id": "cmvuwbebq000g3dyaoq6d33y4",
+          "animalId": "cmvuv6mis000d38r616idb1tj",
+          "url": "/uploads/poulet-frais-pret-a-cuire.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:35:27.303Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuwaykh00003dyak2pdnc3p",
+        "name": "Poulets Fermiers",
+        "slug": "poulets",
+        "description": "Poulets élevés en plein air à la ferme MAP",
+        "displayOrder": 1,
+        "createdAt": "2026-10-30T11:35:06.881Z",
+        "updatedAt": "2026-10-30T11:35:06.881Z"
+      }
+    },
+    {
+      "id": "cmvuv6l94000938r6uasf2u3t",
+      "title": "Cabri Rustique Djallonké Tacheté Noir & Blanc",
+      "slug": "cabri-djallonke-tachete-noir-blanc",
+      "categoryId": "cmvuo2yeu0003f5clnxvyoz7z",
+      "description": "Superbe jeune cabri Djallonké à robe pie blanche et noire avec jarrets fauves, particulièrement agile, vif et résistant aux maladies parasitaires. Élevé au grand air et nourri au fourrage vert, feuilles d'acacia et compléments de sel minéral. Parfait pour la reproduction caprine ou pour vos fêtes de réjouissance.",
+      "price": 45000,
+      "stock": 3,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "10 mois",
+      "race": "Djallonké Ouest-Africain Pur",
+      "sex": "Mâle",
+      "weight": "17 kg",
+      "location": null,
+      "isFeatured": true,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:43.384Z",
+      "updatedAt": "2026-10-31T10:49:24.740Z",
+      "images": [
+        {
+          "id": "cmvuv6lv3000b38r6zxa3xkqq",
+          "animalId": "cmvuv6l94000938r6uasf2u3t",
+          "url": "/uploads/cabri-djallonke-pie-noir.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:03:44.175Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuo2yeu0003f5clnxvyoz7z",
+        "name": "Cabris et Chèvres",
+        "slug": "cabris-et-chevres",
+        "description": "Cabris sahéliens vigoureux, boucs reproducteurs et chèvres laitières rustiques.",
+        "displayOrder": 3,
+        "createdAt": "2026-10-30T07:44:56.503Z",
+        "updatedAt": "2026-10-30T07:44:56.503Z"
+      }
+    },
+    {
+      "id": "cmvuv6k10000538r6wa0y3n6i",
+      "title": "Lapin Reproducteur Blanc Néo-Zélandais (Adulte)",
+      "slug": "lapin-reproducteur-blanc-adulte",
+      "categoryId": "cmvuo2w4j0001f5clbcnft4b0",
+      "description": "Sujet adulte robuste de race pure Blanc Néo-Zélandais élevé dans notre clapier grillagé traditionnel avec poteries artisanales. Parfaitement habitué aux fourrages verts séchés et compléments de céréales. Excellente fertilité et docilité, idéal pour servir de reproducteur principal dans votre élevage cunicole.",
+      "price": 15000,
+      "stock": 5,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "6 mois",
+      "race": "Blanc Néo-Zélandais Pure Race",
+      "sex": "Mâle",
+      "weight": "3.2 kg",
+      "location": null,
+      "isFeatured": true,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:41.796Z",
+      "updatedAt": "2026-10-31T10:50:06.237Z",
+      "images": [
+        {
+          "id": "cmvuv6kna000738r6o5vc0jrt",
+          "animalId": "cmvuv6k10000538r6wa0y3n6i",
+          "url": "/uploads/lapin-blanc-adulte.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:03:42.599Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuo2w4j0001f5clbcnft4b0",
+        "name": "Lapins",
+        "slug": "lapins",
+        "description": "Lapins de chair et reproducteurs vigoureux (Fauve de Bourgogne, Géant, Néo-Zélandais).",
+        "displayOrder": 1,
+        "createdAt": "2026-10-30T07:44:53.540Z",
+        "updatedAt": "2026-10-30T07:44:53.540Z"
+      }
+    },
+    {
+      "id": "cmvuv6ipz000138r6q1z2vj6i",
+      "title": "Poulets Bicyclettes Fermiers Élevés en Plein Air",
+      "slug": "poulets-bicyclettes-fermiers-plein-air",
+      "categoryId": "cmvuo2xak0002f5clcyj3f3ly",
+      "description": "Véritables poulets bicyclettes du terroir élevés en liberté sur terre battue dans la vaste cour de notre exploitation. Alimentation 100% naturelle composée de grains de maïs, son de riz et verdure sans aucun antibiotique préventif ni produit chimique. Chair ferme, savoureuse et diététique, réputée pour les meilleures sauces et grillades.",
+      "price": 4500,
+      "stock": 35,
+      "status": "DISPONIBLE",
+      "isPublished": true,
+      "age": "6 mois",
+      "race": "Race Locale Pure (Poulet du Pays)",
+      "sex": "Mixte",
+      "weight": "1.5 - 1.8 kg",
+      "location": null,
+      "isFeatured": true,
+      "viewsCount": 1,
+      "createdAt": "2026-10-30T11:03:40.001Z",
+      "updatedAt": "2026-10-31T10:49:42.203Z",
+      "images": [
+        {
+          "id": "cmvuv6jee000338r66dev0fms",
+          "animalId": "cmvuv6ipz000138r6q1z2vj6i",
+          "url": "/uploads/poulets-plein-air-ferme.jpg",
+          "isPrimary": true,
+          "order": 0,
+          "createdAt": "2026-10-30T11:03:40.983Z"
+        }
+      ],
+      "category": {
+        "id": "cmvuo2xak0002f5clcyj3f3ly",
+        "name": "Poulets et Volailles",
+        "slug": "poulets-et-volailles",
+        "description": "Poulets bicyclettes fermiers, Goliath, canards et dindes élevés en plein air.",
+        "displayOrder": 2,
+        "createdAt": "2026-10-30T07:44:55.052Z",
+        "updatedAt": "2026-10-30T07:44:55.052Z"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "cmvuwc2hr00173dyayn25zb9i",
+      "title": "Batteries et Poulaillers Étagés Artisanaux",
+      "category": "Infrastructure",
+      "description": "Construction artisanale de batteries en bois naturel sur 3 niveaux pour l'hébergement de nos volailles en intérieur. Structure robuste et aérée permettant d'accueillir simultanément plus de 50 sujets par module.",
+      "imageUrl": "/uploads/poulailler-batterie-bois-3niveaux.jpg",
+      "eventDate": null,
+      "isPublished": true,
+      "createdAt": "2026-10-30T11:35:58.623Z",
+      "updatedAt": "2026-10-30T11:35:58.623Z"
+    },
+    {
+      "id": "cmvuwc3sg00183dyawu05xh0w",
+      "title": "Parc d'Élevage Avicole Plein Air",
+      "category": "Élevage plein air",
+      "description": "Vaste parc en plein air de la Ferme MAP accueillant plus de 80 volailles en liberté. Les animaux bénéficient d'un espace suffisant pour exprimer leurs comportements naturels et d'une alimentation diversifiée.",
+      "imageUrl": "/uploads/basse-cour-poulets-ferme.jpg",
+      "eventDate": null,
+      "isPublished": true,
+      "createdAt": "2026-10-30T11:36:00.304Z",
+      "updatedAt": "2026-10-30T11:36:00.304Z"
+    },
+    {
+      "id": "cmvuwc5ox00193dyaz4nm8gjj",
+      "title": "Poussinière et Démarrage des Jeunes Volailles",
+      "category": "Élevage intensif",
+      "description": "Espace dédié au démarrage des poussins et poulettes, équipé de mangeoires linéaires et d'abreuvoirs adaptés. La Ferme MAP assure un suivi rigoureux des jeunes sujets pour garantir un taux de survie optimal.",
+      "imageUrl": "/uploads/poussiniere-mangeoire-abreuvoir.jpg",
+      "eventDate": null,
+      "isPublished": true,
+      "createdAt": "2026-10-30T11:36:02.770Z",
+      "updatedAt": "2026-10-30T11:36:02.770Z"
+    },
+    {
+      "id": "cmvuv6vc9000y38r69rj5bdn9",
+      "title": "Parcours en liberté et alimentation 100% naturelle en plein air",
+      "category": "Bien-être & Élevage au sol",
+      "description": "Espace sablonneux à ciel ouvert favorisant le comportement naturel des volailles fermières, contribuant à un développement musculaire sain et une chair dense et savoureuse.",
+      "imageUrl": "/uploads/poulets-plein-air-ferme.jpg",
+      "eventDate": "2026-08-22T00:00:00.000Z",
+      "isPublished": true,
+      "createdAt": "2026-10-30T11:03:56.457Z",
+      "updatedAt": "2026-10-30T11:03:56.457Z"
+    },
+    {
+      "id": "cmvuv6unf000x38r6edmb47e2",
+      "title": "Organisation globale de notre parc d'élevage avicole et clapiers",
+      "category": "Aménagement & Bâtiment",
+      "description": "Vue d'ensemble de l'aménagement agropastoral de la Ferme MAP : zones d'alimentation, couveuses, clapiers cunicoles et parcours de détente pour le cheptel.",
+      "imageUrl": "/uploads/parc-avicole-installations.jpg",
+      "eventDate": "2026-06-15T00:00:00.000Z",
+      "isPublished": true,
+      "createdAt": "2026-10-30T11:03:55.563Z",
+      "updatedAt": "2026-10-30T11:03:55.563Z"
+    },
+    {
+      "id": "cmvuv6u05000w38r6a4ctdfrz",
+      "title": "Conception artisanale de batteries et poulaillers étagés sur 3 niveaux",
+      "category": "Infrastructures & Élevage",
+      "description": "Fabrication de compartiments d'élevage sur mesure en bois solide et grillage métallique aéré, avec système de plateaux d'évacuation des déjections et mangeoires suspendues.",
+      "imageUrl": "/uploads/batterie-poulailler-3-etages.jpg",
+      "eventDate": "2026-04-10T00:00:00.000Z",
+      "isPublished": true,
+      "createdAt": "2026-10-30T11:03:54.726Z",
+      "updatedAt": "2026-10-30T11:03:54.726Z"
+    }
+  ],
+  "articles": [
+    {
+      "id": "cmvw4nwv40000mxzr8o4barxt",
+      "title": "Fêtes de Fin d'Année : Réservez Dès Maintenant Vos Volailles et Animaux Fermiers à la Ferme MAP !",
+      "slug": "fetes-fin-d-annee-vente-animaux-ferme-map",
+      "category": "Événement & Vente Spéciale",
+      "excerpt": "À l'approche des festivités de Noël et du Nouvel An, la Ferme MAP lance sa grande vente spéciale. Poulets bicyclettes dodus, coqs vigoureux, cabris rustiques et formules grillards prêtes à cuire. Assurez vos réveillons dès aujourd'hui !",
+      "content": "Les fêtes de fin d'année constituent le temps fort des retrouvailles en famille et entre amis. C'est l'instant privilégié où chacun désire partager un repas d'exception, authentique et mémorable.\n\nPourquoi choisir la Ferme MAP pour vos réveillons ?\n\n1. Le Vrai Goût du Terroir (100% Naturel) :\nNos volailles bicyclettes et nos cabris Djallonké sont élevés en liberté dans notre parc plein air. Nourris aux céréales locales et fourrages verts, sans accélérateurs de croissance ni farines animales, leur chair offre une fermeté, une jutosité et un arôme incomparables.\n\n2. Vos Grillards Prêts-à-Cuire : Gagnez un temps précieux !\nParce que les fêtes ne doivent pas rimer avec corvée de cuisine interminable, la Ferme MAP vous propose également ses grillards assaisonnés et pré-découpés. Prêts à poser sur la braise, ils raviront tous vos convives en quelques minutes.\n\n3. Évitez les hausses de prix et les ruptures des marchés :\nChaque année à l'approche du 24 et du 31 décembre, les cours flambent et la qualité devient aléatoire. En réservant à l'avance auprès de la Ferme MAP, vous bénéficiez du prix direct producteur garanti et vos sujets sont gardés à la ferme jusqu'au jour de votre choix.\n\nContactez-nous directement par WhatsApp au +229 01 66 01 77 83 ou passez votre commande en ligne sur notre boutique !",
+      "coverImage": "/uploads/grillades-barbecue-ferme.webp",
+      "isPublished": true,
+      "viewsCount": 1,
+      "createdAt": "2026-10-31T08:16:54.304Z",
+      "updatedAt": "2026-10-31T10:46:18.210Z"
+    },
+    {
+      "id": "cmvuo3lly000sf5cl5zehiewt",
+      "title": "Alimentation naturelle du poulet bicyclette : astuces économiques [DÉMO]",
+      "slug": "alimentation-naturelle-poulet-bicyclette-demo",
+      "category": "Alimentation",
+      "excerpt": "Comment composer une ration équilibrée pour ses volailles en utilisant les ressources végétales et céréalières locales.",
+      "content": "Pour obtenir une chair ferme et savoureuse tout en maintenant des coûts de production raisonnables, nous misons sur une alimentation locale et variée :\n\n- Céréales de base : Le maïs concassé et le son de blé fournissent l'énergie nécessaire.\n- Sources de protéines naturelles : Les termites, vers de terre et tourteau de soja permettent un développement musculaire harmonieux sans hormones artificielles.\n- Verdure et minéraux : L'apport de feuilles de moringa séchées et broyées renforce le système immunitaire des volailles et apporte des vitamines essentielles.",
+      "coverImage": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80",
+      "isPublished": true,
+      "viewsCount": 0,
+      "createdAt": "2026-10-30T07:45:26.566Z",
+      "updatedAt": "2026-10-30T07:45:26.566Z"
+    },
+    {
+      "id": "cmvuo3k9y000rf5clfyodmdfq",
+      "title": "Bien démarrer un élevage de lapins : 5 règles d'or [DÉMO]",
+      "slug": "bien-demarrer-elevage-lapins-5-regles-or-demo",
+      "category": "Conseils d'élevage",
+      "excerpt": "Découvrez les bases indispensables pour réussir son élevage cunicole : aération, eau propre, foin de qualité et hygiène stricte.",
+      "content": "L'élevage des lapins (cuniculture) est une activité rentable et passionnante lorsqu'elle est menée avec rigueur. Voici nos 5 conseils essentiels :\n\n1. L'Aération et la température : Le lapin craint beaucoup plus la chaleur et l'humidité que le froid modéré. Vos clapiers doivent être protégés des courants d'air violents mais bénéficier d'une ventilation constante.\n\n2. L'eau propre en permanence : Un lapin consomme deux fois plus d'eau que d'aliment sec. Une pipette ou un abreuvoir automatique propre est indispensable pour éviter les infections bactériennes.\n\n3. La transition alimentaire en douceur : Tout changement de fourrage ou de granulé doit se faire progressivement sur 7 à 10 jours pour ne pas perturber la flore intestinale fragile du lapin.\n\n4. L'hygiène des cages : Nettoyez et désinfectez régulièrement les grillages et tiroirs à déjections.\n\n5. Choisir de bons reproducteurs : Ne commencez jamais avec des sujets consanguins ou affaiblis. Préférez des souches reconnues auprès d'un éleveur certifié.",
+      "coverImage": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80",
+      "isPublished": true,
+      "viewsCount": 0,
+      "createdAt": "2026-10-30T07:45:24.838Z",
+      "updatedAt": "2026-10-30T07:45:24.838Z"
+    }
+  ]
+}
