@@ -65,10 +65,14 @@ export default async function HomePage() {
     take: 3,
   });
 
-  // 5. Lien WhatsApp dynamique configuré
+  // 5. Liens WhatsApp dynamiques configurés
   const whatsappHeroUrl = buildWhatsAppLink(
     settings.whatsappNumber,
     `Bonjour ${settings.farmName}, je visite votre site web et souhaite me renseigner sur vos animaux disponibles.`
+  );
+  const whatsappHolidayUrl = buildWhatsAppLink(
+    settings.whatsappNumber,
+    `Bonjour ${settings.farmName}, je souhaite réserver mes volailles et animaux pour les fêtes de fin d'année. Pouvez-vous m'indiquer vos disponibilités ?`
   );
 
   // Photos authentiques de l'exploitation pour les cartes de catégories
@@ -219,6 +223,129 @@ export default async function HomePage() {
                     <span className="text-2xl">🔥</span>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          3. SECTION PROMOTIONNELLE : GRAND MARCHÉ DES FÊTES DE FIN D'ANNÉE
+      ======================================================== */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-gradient-to-br from-[#1E432F] via-[#234B35] to-[#152e20] text-white p-6 sm:p-12 lg:p-14 shadow-2xl border-2 border-amber-400/35">
+          {/* Motifs décoratifs de fond */}
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 space-y-8">
+            {/* En-tête de la section Fêtes */}
+            <div className="text-center max-w-3xl mx-auto space-y-3.5">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-bold uppercase tracking-widest shadow-xs">
+                <span>✨ Vente Spéciale Fêtes de Fin d'Année · Noël & Nouvel An ✨</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-black tracking-tight text-white leading-tight">
+                Sublimez vos Tables de Réveillon avec le Meilleur de notre Élevage
+              </h2>
+              <p className="text-xs sm:text-base text-[#FCFBF7]/90 leading-relaxed max-w-2xl mx-auto font-normal">
+                Les fêtes de fin d'année sont les moments les plus précieux où l'on réunit sa famille, ses amis et ses proches. Ne prenez aucun risque avec les prix gonflés de dernière minute sur les marchés informels ou des volailles de provenance inconnue. À la <strong>Ferme MAP</strong>, nous mettons en vente nos plus beaux sujets pour faire de vos repas de fête un pur moment de bonheur gastronomique !
+              </p>
+            </div>
+
+            {/* Grille des 3 offres phares de fête */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+              {/* Carte 1 : Volailles fermières */}
+              <div className="bg-[#1b3c2a]/80 backdrop-blur-md rounded-2xl p-6 border border-[#3d6e50] flex flex-col justify-between hover:border-amber-400/40 transition group">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-amber-400/15 text-amber-300 flex items-center justify-center text-2xl">
+                    🍗
+                  </div>
+                  <h3 className="font-serif font-bold text-lg text-white group-hover:text-amber-200 transition">
+                    Poulets Bicyclettes & Coqs Dodus
+                  </h3>
+                  <p className="text-xs text-[#FCFBF7]/80 leading-relaxed">
+                    Volailles vigoureuses élevées en plein air, nourries aux céréales et fourrages naturels. Une chair ferme, juteuse et incomparablement parfumée pour vos sauces festives, rôtis et braisés.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#315d43] mt-4 flex items-center justify-between">
+                  <span className="text-[11px] text-amber-300 font-bold uppercase tracking-wider">
+                    Dès 3 500 FCFA
+                  </span>
+                  <span className="text-[11px] text-[#A3C9A8] font-medium">Vivant ou Prêt-à-cuire</span>
+                </div>
+              </div>
+
+              {/* Carte 2 : Cabris Djallonké */}
+              <div className="bg-[#1b3c2a]/80 backdrop-blur-md rounded-2xl p-6 border border-[#3d6e50] flex flex-col justify-between hover:border-amber-400/40 transition group">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-amber-400/15 text-amber-300 flex items-center justify-center text-2xl">
+                    🐐
+                  </div>
+                  <h3 className="font-serif font-bold text-lg text-white group-hover:text-amber-200 transition">
+                    Cabris Rustiques de Choix
+                  </h3>
+                  <p className="text-xs text-[#FCFBF7]/80 leading-relaxed">
+                    Cabris Djallonké et métis vigoureux, tachetés noir et blanc, suivis rigoureusement sur le plan sanitaire. Idéaux pour vos méchouis en plein air, soupes épicées et grands banquets du Nouvel An.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#315d43] mt-4 flex items-center justify-between">
+                  <span className="text-[11px] text-amber-300 font-bold uppercase tracking-wider">
+                    Sujets sélectionnés
+                  </span>
+                  <span className="text-[11px] text-[#A3C9A8] font-medium">Santé garantie</span>
+                </div>
+              </div>
+
+              {/* Carte 3 : Grillards rapides */}
+              <div className="bg-[#1b3c2a]/80 backdrop-blur-md rounded-2xl p-6 border border-[#3d6e50] flex flex-col justify-between hover:border-amber-400/40 transition group">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-amber-400/15 text-amber-300 flex items-center justify-center text-2xl">
+                    🔥
+                  </div>
+                  <h3 className="font-serif font-bold text-lg text-white group-hover:text-amber-200 transition">
+                    Formules Grillards Prêts-à-Griller
+                  </h3>
+                  <p className="text-xs text-[#FCFBF7]/80 leading-relaxed">
+                    Gagnez un temps précieux le jour du réveillon ! Morceaux soigneusement lavés, découpés et assaisonnés aux épices du terroir. Posez sur les braises, c'est prêt, rapide et succulent.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#315d43] mt-4 flex items-center justify-between">
+                  <span className="text-[11px] text-amber-300 font-bold uppercase tracking-wider">
+                    Prêt en 20 minutes
+                  </span>
+                  <span className="text-[11px] text-[#A3C9A8] font-medium">Zéro corvée cuisine</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Bannière de réassurance et appel à l'action */}
+            <div className="bg-[#152e20] p-6 rounded-2xl border border-amber-400/30 flex flex-col sm:flex-row items-center justify-between gap-5">
+              <div className="space-y-1 text-center sm:text-left">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center justify-center sm:justify-start gap-1.5">
+                  <span>⏳</span>
+                  <span>Stocks contingentés pour les fêtes — Réservez sans attendre</span>
+                </span>
+                <p className="text-xs text-[#FCFBF7]/85 max-w-xl">
+                  En réservant dès aujourd'hui, vous bloquez votre prix direct producteur et assurez la mise de côté de vos sujets préférés jusqu'à la date de votre fête.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 shrink-0">
+                <Link
+                  href="/boutique"
+                  className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#1b3c2a] font-black text-xs uppercase tracking-wider shadow-md transition transform hover:-translate-y-0.5"
+                >
+                  Voir les animaux disponibles
+                </Link>
+                <a
+                  href={whatsappHolidayUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 rounded-xl bg-[#557A46] hover:bg-[#436335] text-white font-bold text-xs uppercase tracking-wider transition inline-flex items-center gap-2"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Réserver sur WhatsApp</span>
+                </a>
               </div>
             </div>
           </div>

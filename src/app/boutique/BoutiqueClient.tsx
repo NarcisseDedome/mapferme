@@ -64,6 +64,35 @@ export default function BoutiqueClient({
 
   return (
     <div className="space-y-8">
+      {/* Bannière Promotionnelle Fêtes de Fin d'Année */}
+      <div className="bg-gradient-to-r from-[#234B35] to-[#163323] text-white p-5 sm:p-6 rounded-3xl border-2 border-amber-400/40 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-4 text-center md:text-left">
+          <div className="w-12 h-12 rounded-2xl bg-amber-400/20 text-amber-300 flex items-center justify-center text-2xl shrink-0">
+            🎄
+          </div>
+          <div className="space-y-0.5">
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold text-amber-300 uppercase tracking-wider">
+              <span>Opération Spéciale Fêtes de Fin d'Année</span>
+            </div>
+            <h3 className="font-serif font-black text-base sm:text-lg text-white">
+              Vente & Précommandes Ouvertes : Noël & Saint-Sylvestre
+            </h3>
+            <p className="text-xs text-[#FCFBF7]/85 max-w-xl">
+              Poulets bicyclettes dodus, coqs de fête, cabris vigoureux et grillards prêts-à-cuire. Réservez tôt pour garantir vos sujets et éviter la flambée des prix !
+            </p>
+          </div>
+        </div>
+        <a
+          href="https://wa.me/qr/YSO2RHQ4CPOWM1?s=v"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#1b3c2a] font-black text-xs uppercase tracking-wider shadow-sm transition inline-flex items-center gap-2"
+        >
+          <span>Réserver pour les Fêtes</span>
+          <span>→</span>
+        </a>
+      </div>
+
       {/* Search and Filter Controls */}
       <div className="bg-white p-5 rounded-3xl border border-warm-200/90 shadow-xs space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
