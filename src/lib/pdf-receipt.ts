@@ -31,11 +31,11 @@ export function generateOrderReceiptPDF(data: OrderReceiptData) {
   });
 
   const currency = data.currency || 'FCFA';
-  const farmName = data.farmName || 'Ferme MAP';
+  const farmName = data.farmName || 'AYEKOBINOU SERVICE';
   const phone = data.phone || '+229 01 66 01 77 83 / +229 01 95 20 43 97';
   const email = data.email || 'm.aik@hotmail.fr';
 
-  // 1. Couleurs de la charte Ferme MAP
+  // 1. Couleurs de la charte AYEKOBINOU SERVICE
   const cForest = [35, 75, 53] as const; // #234B35
   const cGold = [138, 98, 70] as const; // #8A6246
   const cDark = [41, 45, 41] as const; // #292D29
@@ -46,16 +46,16 @@ export function generateOrderReceiptPDF(data: OrderReceiptData) {
   doc.setFillColor(...cForest);
   doc.rect(0, 0, 210, 36, 'F');
 
-  // Logo / Texte Ferme MAP
+  // Logo / Texte AYEKOBINOU SERVICE
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(22);
-  doc.text('FERME MAP', 14, 18);
+  doc.setFontSize(18);
+  doc.text('AYEKOBINOU SERVICE', 14, 18);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(163, 201, 168); // #A3C9A8
-  doc.text("Élevage Professionnel · Grillards & Vente Directe", 14, 25);
+  doc.text("Domaine d'Élevage & Vente Directe de Produits", 14, 25);
   doc.text("Bénin · Tél : " + phone, 14, 30);
 
   // Titre du document à droite
@@ -88,7 +88,7 @@ export function generateOrderReceiptPDF(data: OrderReceiptData) {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
   doc.setTextColor(...cDark);
-  doc.text(data.customerName || 'Client Ferme MAP', 20, y + 15);
+  doc.text(data.customerName || 'Client AYEKOBINOU SERVICE', 20, y + 15);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
@@ -241,7 +241,7 @@ export function generateOrderReceiptPDF(data: OrderReceiptData) {
     y + 26
   );
   doc.text(
-    '4. Qualité et vigueur garanties · Élevage sain · Suivi sanitaire strict · Ferme MAP.',
+    '4. Qualité et vigueur garanties · Élevage sain · Suivi sanitaire strict · AYEKOBINOU SERVICE.',
     20,
     y + 32
   );
@@ -255,7 +255,7 @@ export function generateOrderReceiptPDF(data: OrderReceiptData) {
   doc.setFontSize(7.5);
   doc.setTextColor(120, 120, 120);
   doc.text(
-    `${farmName} — Élevage naturel & vente directe de lapins, volailles fermières, cabris et grillards.`,
+    `${farmName} — Domaine d'élevage & vente directe de produits (lapins, volailles, cabris et grillards).`,
     105,
     y + 6,
     { align: 'center' }
@@ -269,5 +269,5 @@ export function generateOrderReceiptPDF(data: OrderReceiptData) {
 
   // Déclencher le téléchargement du fichier PDF
   const cleanOrderNumber = (data.orderNumber || 'COMMANDE').replace(/[^a-zA-Z0-9-_]/g, '_');
-  doc.save(`Recu-Ferme-MAP-${cleanOrderNumber}.pdf`);
+  doc.save(`Recu-AYEKOBINOU-SERVICE-${cleanOrderNumber}.pdf`);
 }

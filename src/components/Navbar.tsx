@@ -165,20 +165,20 @@ export default function Navbar({ settings }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo / Nom de la marque avec photo du responsable juste avant */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group" title="Responsable d'exploitation - Ferme MAP">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group" title="Responsable - AYEKOBINOU SERVICE">
             {/* Photo officielle du responsable */}
             <div className="relative shrink-0">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[#557A46] shadow-sm ring-2 ring-[#234B35]/20 group-hover:ring-[#557A46] group-hover:scale-105 transition-all duration-300 bg-[#234B35]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/responsable.jpg"
-                  alt="Responsable d'exploitation - Ferme MAP"
+                  alt="Responsable - AYEKOBINOU SERVICE"
                   className="w-full h-full object-cover object-top scale-110"
                 />
               </div>
               <span
                 className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full shadow-xs"
-                title="Exploitation active & Éleveur joignable"
+                title="Domaine actif & Contact joignable"
               />
             </div>
 
@@ -191,7 +191,7 @@ export default function Navbar({ settings }: NavbarProps) {
                 {settings.farmName}
               </span>
               <span className="block text-[10px] sm:text-[11px] text-[#8A6246] font-bold tracking-wider uppercase">
-                Élevage & Vente directe
+                Domaine d&apos;élevage & vente
               </span>
             </div>
           </Link>

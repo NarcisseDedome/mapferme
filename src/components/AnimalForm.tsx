@@ -359,7 +359,7 @@ export default function AnimalForm({
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                placeholder="Ex : Ferme principale (Livraison possible à Cotonou / Calavi)"
+                placeholder="Ex : Domaine AYEKOBINOU SERVICE (Livraison possible à Cotonou / Calavi)"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-warm-300 text-stone-900 focus:outline-none focus:ring-2 focus:ring-forest-600 text-xs"
               />
             </div>

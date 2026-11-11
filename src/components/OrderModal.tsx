@@ -27,7 +27,7 @@ export default function OrderModal({
   const [customerLocation, setCustomerLocation] = useState('');
   const [preparationOption, setPreparationOption] = useState('VIVANT');
   const [deliveryType, setDeliveryType] = useState<'FERME' | 'RELAIS' | 'DOMICILE'>('FERME');
-  const [deliveryAddress, setDeliveryAddress] = useState("Retrait direct à l'élevage Ferme MAP");
+  const [deliveryAddress, setDeliveryAddress] = useState("Retrait direct au domaine AYEKOBINOU SERVICE");
   const [notes, setNotes] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -317,7 +317,7 @@ export default function OrderModal({
                   type="button"
                   onClick={() => {
                     setDeliveryType('FERME');
-                    setDeliveryAddress("Retrait direct à l'élevage Ferme MAP");
+                    setDeliveryAddress("Retrait direct au domaine AYEKOBINOU SERVICE");
                   }}
                   className={`p-2.5 rounded-xl border text-left text-xs transition ${
                     deliveryType === 'FERME'
@@ -325,8 +325,8 @@ export default function OrderModal({
                       : 'border-[#ECE6D9] bg-white text-[#292D29] hover:bg-[#F6F2E9]'
                   }`}
                 >
-                  <span className="block text-sm">🚜</span>
-                  <span className="block font-bold">À la ferme</span>
+                  <span className="block text-sm">🏡</span>
+                  <span className="block font-bold">Au domaine</span>
                   <span className="text-[10px] text-[#557A46]">Gratuit</span>
                 </button>
 
@@ -374,7 +374,7 @@ export default function OrderModal({
                 type="text"
                 value={deliveryAddress}
                 onChange={(e) => setDeliveryAddress(e.target.value)}
-                placeholder="Ex : Quartier, repère, ou retrait direct à l'élevage"
+                placeholder="Ex : Quartier, repère, ou retrait direct au domaine"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-warm-300 text-stone-900 focus:outline-none focus:ring-2 focus:ring-forest-600 text-sm"
               />
             </div>

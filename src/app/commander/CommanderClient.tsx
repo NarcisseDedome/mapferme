@@ -29,7 +29,7 @@ export default function CommanderClient({
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerLocation, setCustomerLocation] = useState('');
   const [deliveryType, setDeliveryType] = useState<'FERME' | 'RELAIS' | 'DOMICILE'>('FERME');
-  const [deliveryAddress, setDeliveryAddress] = useState("Retrait direct à l'élevage Ferme MAP");
+  const [deliveryAddress, setDeliveryAddress] = useState("Retrait direct au domaine AYEKOBINOU SERVICE");
   const [notes, setNotes] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -342,7 +342,7 @@ export default function CommanderClient({
                   type="button"
                   onClick={() => {
                     setDeliveryType('FERME');
-                    setDeliveryAddress("Retrait direct à l'élevage Ferme MAP");
+                    setDeliveryAddress("Retrait direct au domaine AYEKOBINOU SERVICE");
                   }}
                   className={`p-3 rounded-xl border text-left text-xs transition ${
                     deliveryType === 'FERME'
@@ -350,8 +350,8 @@ export default function CommanderClient({
                       : 'border-[#ECE6D9] bg-white text-[#292D29] hover:bg-[#F6F2E9]'
                   }`}
                 >
-                  <span className="block text-sm mb-1">🚜</span>
-                  <span className="block font-bold">Retrait à la ferme</span>
+                  <span className="block text-sm mb-1">🏡</span>
+                  <span className="block font-bold">Retrait au domaine</span>
                   <span className="text-[10px] text-[#557A46]">Gratuit</span>
                 </button>
 
@@ -399,7 +399,7 @@ export default function CommanderClient({
                 type="text"
                 value={deliveryAddress}
                 onChange={(e) => setDeliveryAddress(e.target.value)}
-                placeholder="Ex : Retrait direct à la ferme le samedi matin"
+                placeholder="Ex : Retrait direct au domaine le samedi matin"
                 className="w-full px-4 py-2.5 rounded-xl border border-warm-300 text-stone-900 focus:outline-none focus:ring-2 focus:ring-forest-600 text-sm"
               />
             </div>

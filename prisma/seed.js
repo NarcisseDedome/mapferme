@@ -35,24 +35,30 @@ async function main() {
   // 2. Paramètres généraux du site
   await prisma.siteSettings.upsert({
     where: { id: 'default' },
-    update: {},
+    update: {
+      farmName: 'AYEKOBINOU SERVICE',
+      tagline: "Domaine d'élevage & vente de produits — Lapins, Volailles & Cabris",
+      aboutText:
+        "Domaine dédié à l'élevage professionnel et à la vente directe de produits depuis plus de 6 ans. Nous sélectionnons des sujets vigoureux, nourris sainement avec des produits naturels de nos terroirs et suivis selon un protocole sanitaire strict. Nous pratiquons la vente directe sans intermédiaire afin de garantir aux acquéreurs des animaux et produits de premier choix.",
+      address: 'Domaine AYEKOBINOU SERVICE, Bénin',
+    },
     create: {
       id: 'default',
-      farmName: "Ferme Agro-Pastorale de l'Espoir",
-      tagline: 'Élevage naturel & vente directe de lapins, volailles et cabris de race',
+      farmName: 'AYEKOBINOU SERVICE',
+      tagline: "Domaine d'élevage & vente de produits — Lapins, Volailles & Cabris",
       aboutText:
-        "Éleveur professionnel indépendant depuis plus de 6 ans, nous sélectionnons des sujets vigoureux, nourris sainement avec des produits naturels de nos terroirs et suivis selon un protocole sanitaire strict. Nous pratiquons la vente directe sans intermédiaire afin de garantir aux acquéreurs des animaux au meilleur de leur forme.",
+        "Domaine dédié à l'élevage professionnel et à la vente directe de produits depuis plus de 6 ans. Nous sélectionnons des sujets vigoureux, nourris sainement avec des produits naturels de nos terroirs et suivis selon un protocole sanitaire strict. Nous pratiquons la vente directe sans intermédiaire afin de garantir aux acquéreurs des animaux et produits de premier choix.",
       experienceYears: 6,
-      phone: '+229 97 00 12 34',
-      whatsappNumber: '22997001234',
-      email: 'contact@elevage-espoir.com',
-      address: 'Route Nationale Inter-États, Zone Agro-Écologique, Bénin',
+      phone: '+229 01 66 01 77 83 / +229 01 95 20 43 97',
+      whatsappNumber: 'https://wa.me/qr/YSO2RHQ4CPOWM1?s=v',
+      email: 'm.aik@hotmail.fr',
+      address: 'Domaine AYEKOBINOU SERVICE, Bénin',
       hours: 'Lundi au Samedi : 07h30 - 18h30 | Dimanche sur commande',
       currency: 'FCFA',
-      heroTitle: "Animaux d'élevage de race et de qualité supérieure",
+      heroTitle: 'Commandez vos grillards si vous désirez gagner du temps dans vos préparations, rapide et bien fait !',
       heroSubtitle:
-        'Lapins reproducteurs et de chair, poulets fermiers rustiques, cabris sahéliens et chèvres de race élevés dans le respect de la nature.',
-      heroImage: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1600&q=80',
+        'Vente directe de lapins de race, poulets fermiers vigoureux et cabris Djallonké élevés au domaine avec soin. AYEKOBINOU SERVICE — Domaine d\'élevage & Vente directe de produits',
+      heroImage: '/uploads/grillades-barbecue-ferme.webp',
       facebookUrl: 'https://facebook.com',
       youtubeUrl: '',
       instagramUrl: '',

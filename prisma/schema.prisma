@@ -125,18 +125,18 @@ model Article {
 
 model SiteSettings {
   id              String   @id @default("default")
-  farmName        String   @default("Ferme Pastorale de l'Espoir")
-  tagline         String   @default("Élevage sain, naturel et sélectionné de lapins, volailles et cabris")
-  aboutText       String   @default("Passionné par l'agropastoralisme et le bien-être animal, notre élevage met à votre disposition des sujets vigoureux, nourris sainement et suivis rigoureusement sur le plan sanitaire.")
+  farmName        String   @default("AYEKOBINOU SERVICE")
+  tagline         String   @default("Domaine d'élevage & vente de produits — Lapins, Volailles & Cabris")
+  aboutText       String   @default("Domaine dédié à l'élevage professionnel et à la vente directe de produits depuis plus de 6 ans. Nous sélectionnons des sujets vigoureux, nourris sainement et suivis rigoureusement sur le plan sanitaire.")
   experienceYears Int      @default(6)
-  phone           String   @default("+229 97 00 12 34")
-  whatsappNumber  String   @default("22997001234")
-  email           String   @default("contact@elevage-espoir.com")
-  address         String   @default("Route Principale, Zone Rurale Agro-Écologique")
-  hours           String   @default("Lundi au Samedi : 07h30 - 18h00 | Dimanche sur commande")
+  phone           String   @default("+229 01 66 01 77 83 / +229 01 95 20 43 97")
+  whatsappNumber  String   @default("22901660177830")
+  email           String   @default("m.aik@hotmail.fr")
+  address         String   @default("Domaine AYEKOBINOU SERVICE, Bénin")
+  hours           String   @default("Lundi au Samedi : 07h30 - 18h30 | Dimanche sur commande")
   currency        String   @default("FCFA")
-  heroTitle       String   @default("Animaux d'élevage de qualité supérieure, prêts pour votre cheptel ou votre table")
-  heroSubtitle    String   @default("Vente directe de lapins de race, poulets fermiers vigoureux et cabris sahéliens élevés avec soin et respect de la nature.")
+  heroTitle       String   @default("Commandez vos grillards si vous désirez gagner du temps dans vos préparations, rapide et bien fait !")
+  heroSubtitle    String   @default("Vente directe de lapins de race, poulets fermiers vigoureux et cabris Djallonké élevés au domaine avec soin.")
   heroImage       String?
   facebookUrl     String?  @default("https://facebook.com")
   youtubeUrl      String?

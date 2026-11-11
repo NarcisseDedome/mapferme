@@ -38,7 +38,7 @@ export default function Footer({ settings }: FooterProps) {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/responsable.jpg"
-                    alt="Responsable - Ferme MAP"
+                    alt="Responsable - AYEKOBINOU SERVICE"
                     className="w-full h-full object-cover object-top scale-110"
                   />
                 </div>
@@ -49,7 +49,7 @@ export default function Footer({ settings }: FooterProps) {
                   {settings.farmName}
                 </span>
                 <span className="text-[10px] uppercase font-bold text-[#A3C9A8] tracking-wider block">
-                  Élevage Agropastoral
+                  Domaine d&apos;Élevage & Vente
                 </span>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function Footer({ settings }: FooterProps) {
             </p>
             <div className="pt-2">
               <span className="inline-block text-[11px] text-[#A3C9A8] bg-[#234B35]/70 px-3 py-1.5 rounded-xl border border-[#2e5b41]">
-                ✓ Élevage professionnel en vente directe exclusive par le propriétaire
+                ✓ Domaine d&apos;élevage & vente directe exclusive de produits
               </span>
             </div>
 

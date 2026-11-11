@@ -56,7 +56,7 @@ Pouvez-vous me confirmer sa prise en charge et le créneau de livraison/retrait 
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       {/* Zone imprimable du reçu officiel */}
       <div className="bg-[#FCFBF7] rounded-3xl border border-[#ECE6D9] shadow-lg p-6 sm:p-10 space-y-6 print:border-none print:shadow-none print:p-0">
-        {/* Entête du reçu avec Logo Ferme MAP */}
+        {/* Entête du reçu avec Logo AYEKOBINOU SERVICE */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-[#ECE6D9]">
           <div className="flex items-center gap-3">
             <LogoIcon className="w-12 h-12 shrink-0" />
@@ -172,7 +172,7 @@ Pouvez-vous me confirmer sa prise en charge et le créneau de livraison/retrait 
             <div className="pt-3 border-t border-[#ECE6D9] flex items-center justify-between text-[10px] text-[#292D29]/70">
               <span className="flex items-center gap-1 font-semibold text-[#557A46]">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                Réservation garantie Ferme MAP
+                Réservation garantie AYEKOBINOU SERVICE
               </span>
               <span>Règlement à la livraison ou au retrait</span>
             </div>

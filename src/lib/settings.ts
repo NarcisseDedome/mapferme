@@ -2,20 +2,20 @@ import { prisma } from './prisma';
 
 export const DEFAULT_SITE_SETTINGS = {
   id: 'default',
-  farmName: 'Ferme MAP',
-  tagline: 'Élevage sain, naturel et sélectionné — Lapins, Volailles & Cabris',
+  farmName: 'AYEKOBINOU SERVICE',
+  tagline: "Domaine d'élevage & vente directe de produits — Lapins, Volailles & Cabris",
   aboutText:
-    "Éleveur professionnel indépendant depuis plus de 6 ans, nous sélectionnons des sujets vigoureux, nourris sainement avec des produits naturels de nos terroirs et suivis selon un protocole sanitaire strict. Nous pratiquons la vente directe sans intermédiaire afin de garantir aux acquéreurs des animaux au meilleur de leur forme.",
+    "Domaine dédié à l'élevage professionnel et à la vente directe de produits depuis plus de 6 ans, nous sélectionnons des sujets vigoureux, nourris sainement avec des ressources naturelles de nos terroirs et suivis selon un protocole sanitaire rigoureux afin de garantir aux acquéreurs des animaux et produits de premier choix.",
   experienceYears: 6,
   phone: '+229 01 66 01 77 83 / +229 01 95 20 43 97',
   whatsappNumber: 'https://wa.me/qr/YSO2RHQ4CPOWM1?s=v',
   email: 'm.aik@hotmail.fr',
-  address: '',
+  address: 'Domaine AYEKOBINOU SERVICE, Bénin',
   hours: 'Lundi au Samedi : 07h30 - 18h30 | Dimanche sur commande',
   currency: 'FCFA',
   heroTitle: 'Commandez vos grillards si vous désirez gagner du temps dans vos préparations, rapide et bien fait !',
   heroSubtitle:
-    'Vente directe de lapins de race, poulets fermiers vigoureux et cabris Djallonké élevés avec soin et respect de la nature. Ferme MAP — Élevage · Qualité · Confiance',
+    'Vente directe de lapins de race, poulets fermiers vigoureux et cabris Djallonké élevés au domaine avec soin. AYEKOBINOU SERVICE — Domaine d\'élevage & Vente de produits',
   heroImage: '/uploads/grillades-barbecue-ferme.webp',
   facebookUrl: 'https://facebook.com',
   youtubeUrl: '',
@@ -53,12 +53,14 @@ export async function getSiteSettings() {
       });
     }
 
-    // Si les champs clés sont vides ou contiennent l'ancienne image Unsplash
+    // Si les champs clés sont vides ou contiennent l'ancienne image Unsplash ou l'ancien nom de ferme
     if (
       !settings.heroImage ||
       settings.heroImage.includes('unsplash.com') ||
       !settings.heroTitle ||
-      settings.heroTitle.includes('Pastorale')
+      settings.heroTitle.includes('Pastorale') ||
+      settings.farmName === 'Ferme MAP' ||
+      settings.farmName?.includes('Pastorale')
     ) {
       settings = {
         ...settings,
@@ -66,12 +68,13 @@ export async function getSiteSettings() {
         heroTitle: DEFAULT_SITE_SETTINGS.heroTitle,
         heroSubtitle: DEFAULT_SITE_SETTINGS.heroSubtitle,
         farmName: DEFAULT_SITE_SETTINGS.farmName,
+        tagline: DEFAULT_SITE_SETTINGS.tagline,
       };
     }
 
     return settings;
   } catch (err) {
-    console.error('Error fetching site settings, using default Ferme MAP:', err);
+    console.error('Error fetching site settings, using default AYEKOBINOU SERVICE:', err);
     return DEFAULT_SITE_SETTINGS;
   }
 }

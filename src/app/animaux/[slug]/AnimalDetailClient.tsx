@@ -258,7 +258,7 @@ Pouvez-vous me confirmer sa disponibilité et les modalités de livraison/retrai
           <div className="bg-[#E9F3EB] p-4 rounded-2xl border border-[#bedfc9] space-y-2.5 text-xs text-[#234B35]">
             <div className="flex items-center gap-2 font-bold uppercase tracking-wider text-[10px]">
               <ShieldCheck className="w-4 h-4 text-[#557A46] shrink-0" />
-              <span>Garanties & Suivi Zootechnique Ferme MAP</span>
+              <span>Garanties & Suivi Zootechnique AYEKOBINOU SERVICE</span>
             </div>
             <div className="grid grid-cols-2 gap-2 text-[11px] text-[#234B35]/90 pt-1">
               <span className="flex items-center gap-1.5 font-medium">

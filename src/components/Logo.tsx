@@ -5,7 +5,7 @@ export function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="Logo MAP"
+      aria-label="Logo AYEKOBINOU SERVICE"
     >
       <defs>
         <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -90,8 +90,8 @@ export function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
 export default function Logo({
   variant = 'horizontal',
   size = 'md',
-  farmName = 'Ferme MAP',
-  tagline = 'Élevage & Vente directe',
+  farmName = 'AYEKOBINOU SERVICE',
+  tagline = "Domaine d'élevage & vente de produits",
   showManager = true,
 }: {
   variant?: 'horizontal' | 'icon' | 'stacked';
@@ -130,7 +130,7 @@ export default function Logo({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/responsable.jpg"
-              alt="Responsable d'exploitation - Ferme MAP"
+              alt="Responsable - AYEKOBINOU SERVICE"
               className="w-full h-full object-cover object-top scale-110"
             />
           </div>

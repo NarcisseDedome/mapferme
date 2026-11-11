@@ -44,17 +44,20 @@ export async function POST(req: NextRequest) {
       console.warn('Prisma DB lookup error in login, checking master credentials fallback:', dbErr);
     }
 
-    // 2. Secours garanti pour le propriétaire officiel de la Ferme MAP
+    // 2. Secours garanti pour le propriétaire officiel de AYEKOBINOU SERVICE
     if (!authenticatedUser) {
       const isOfficialMatch =
-        (cleanEmail === OFFICIAL_ADMIN_EMAIL || cleanEmail === 'admin@ferme-map.com' || cleanEmail === 'admin@elevage-espoir.com') &&
+        (cleanEmail === OFFICIAL_ADMIN_EMAIL ||
+          cleanEmail === 'admin@ayekobinou.com' ||
+          cleanEmail === 'admin@ferme-map.com' ||
+          cleanEmail === 'admin@elevage-espoir.com') &&
         cleanPassword === OFFICIAL_ADMIN_PASSWORD;
 
       if (isOfficialMatch) {
         authenticatedUser = {
-          id: 'admin_official_map_001',
+          id: 'admin_official_ayekobinou_001',
           email: OFFICIAL_ADMIN_EMAIL,
-          name: 'Mohamed - Responsable Ferme MAP',
+          name: 'Mohamed - Responsable AYEKOBINOU SERVICE',
           role: 'ADMIN',
         };
       }

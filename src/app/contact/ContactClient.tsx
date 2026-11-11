@@ -128,7 +128,7 @@ export default function ContactClient({ settings }: ContactClientProps) {
                   <span>Discuter directement sur WhatsApp (Lien direct & QR) →</span>
                 </a>
                 <a
-                  href={buildWhatsAppLink('2290195204397', 'Bonjour Ferme MAP, je souhaite me renseigner.')}
+                  href={buildWhatsAppLink('2290195204397', 'Bonjour AYEKOBINOU SERVICE, je souhaite me renseigner.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-medium text-emerald-700 hover:underline flex items-center gap-1"
@@ -161,7 +161,7 @@ export default function ContactClient({ settings }: ContactClientProps) {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-stone-400 block font-medium">Localisation de l'élevage</span>
+                  <span className="text-xs text-stone-400 block font-medium">Localisation du domaine</span>
                   <p className="text-sm font-semibold text-stone-800">{settings.address}</p>
                 </div>
               </div>

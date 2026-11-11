@@ -140,7 +140,7 @@ export default function AdminOrdersClient({
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `commandes-ferme-map-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `commandes-ayekobinou-service-${new Date().toISOString().slice(0, 10)}.csv`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -311,7 +311,7 @@ export default function AdminOrdersClient({
                               quantity: i.quantity,
                               unitPrice: i.unitPrice,
                             })),
-                            farmName: 'Ferme MAP',
+                            farmName: 'AYEKOBINOU SERVICE',
                             currency,
                           })
                         }

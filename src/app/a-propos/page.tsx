@@ -39,10 +39,10 @@ export default async function AboutPage() {
                 {settings.aboutText}
               </p>
               <p>
-                Depuis plus de <strong>{settings.experienceYears} ans</strong>, notre exploitation s'efforce d'allier méthodes agropastorales traditionnelles respectueuses et techniques modernes de prophylaxie vétérinaire.
+                Depuis plus de <strong>{settings.experienceYears} ans</strong>, notre domaine s&apos;efforce d&apos;allier méthodes agropastorales respectueuses et techniques modernes de prophylaxie vétérinaire.
               </p>
               <p>
-                Contrairement aux intermédiaires et revendeurs occasionnels, nous élevons nous-mêmes nos sujets dans des parcs aérés, entretenus quotidiennement et surveillés avec la plus grande assiduité.
+                Contrairement aux intermédiaires et revendeurs occasionnels, nous élevons nous-mêmes nos sujets dans des parcs et installations aérés, entretenus quotidiennement et surveillés avec la plus grande assiduité pour la vente de produits sains et vigoureux.
               </p>
             </div>
 
@@ -63,7 +63,7 @@ export default async function AboutPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/responsable.jpg"
-                  alt="Responsable d'exploitation Ferme MAP"
+                  alt="Responsable - AYEKOBINOU SERVICE"
                   className="w-full h-full object-cover object-top hover:scale-105 transition duration-500"
                 />
               </div>
@@ -140,7 +140,7 @@ export default async function AboutPage() {
       {/* Reassurance Callout */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
         <h3 className="text-xl sm:text-2xl font-bold text-stone-900">
-          Vous souhaitez visiter nos installations ?
+          Vous souhaitez visiter notre domaine ?
         </h3>
         <p className="text-sm text-stone-600 max-w-xl mx-auto">
           Nous accueillons les acheteurs et porteurs de projet sur rendez-vous pour choisir leurs sujets en toute transparence.

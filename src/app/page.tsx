@@ -80,7 +80,7 @@ export default async function HomePage() {
     console.error('Database connection error in HomePage:', err);
   }
 
-  // Si la base est inaccessible ou vide, utiliser les données réelles authentiques de la Ferme MAP
+  // Si la base est inaccessible ou vide, utiliser les données réelles authentiques de AYEKOBINOU SERVICE
   if (!categories || categories.length === 0) categories = FALLBACK_CATEGORIES;
   if (!animals || animals.length === 0) animals = FALLBACK_ANIMALS.slice(0, 4);
   if (!projects || projects.length === 0) projects = FALLBACK_PROJECTS.slice(0, 3);
@@ -269,7 +269,7 @@ export default async function HomePage() {
                 Sublimez vos Tables de Réveillon avec le Meilleur de notre Élevage
               </h2>
               <p className="text-xs sm:text-base text-[#FCFBF7]/90 leading-relaxed max-w-2xl mx-auto font-normal">
-                Les fêtes de fin d'année sont les moments les plus précieux où l'on réunit sa famille, ses amis et ses proches. Ne prenez aucun risque avec les prix gonflés de dernière minute sur les marchés informels ou des volailles de provenance inconnue. À la <strong>Ferme MAP</strong>, nous mettons en vente nos plus beaux sujets pour faire de vos repas de fête un pur moment de bonheur gastronomique !
+                Les fêtes de fin d&apos;année sont les moments les plus précieux où l&apos;on réunit sa famille, ses amis et ses proches. Ne prenez aucun risque avec les prix gonflés de dernière minute sur les marchés informels ou des volailles de provenance inconnue. Chez <strong>AYEKOBINOU SERVICE</strong>, nous mettons en vente nos plus beaux sujets élevés au domaine pour faire de vos repas de fête un pur moment de bonheur gastronomique !
               </p>
             </div>
 
@@ -499,7 +499,7 @@ export default async function HomePage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/responsable.jpg"
-                  alt="Responsable d'exploitation - Ferme MAP"
+                  alt="Responsable - AYEKOBINOU SERVICE"
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />

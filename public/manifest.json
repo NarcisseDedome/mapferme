@@ -1,7 +1,7 @@
 {
-  "name": "Ferme MAP - Élevage & Vente Directe",
-  "short_name": "Ferme MAP",
-  "description": "Élevage professionnel et vente directe de lapins de race, volailles fermières et cabris sahéliens.",
+  "name": "AYEKOBINOU SERVICE - Domaine d'élevage & vente",
+  "short_name": "AYEKOBINOU SERVICE",
+  "description": "Domaine d'élevage et vente directe de lapins de race, volailles, cabris et produits d'élevage.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F6F2E9",
